@@ -6,17 +6,17 @@
   * [Getting started](#getting-started)
 * [Spider features](#spider-features)
   * [Collaboration within your project](#collaboration-within-your-project) 
-  * [High throughput data processing model](high-throughput-data-processing-model)
-  * [Interactive analysis with Jupyter Notebooks](interactive-analysis-with-jupyter-notebooks)
-  * [Software portability with containers](software-portability-with-containers)
-  * [Integration with scalable storage](integration-with-scalable-storage)
-  * [Interoperability with existing platforms](interoperability-with-existing-platforms)
-  * [Performance evaluation of staging and scratch area](performance-evaluation-of-staging-and-scratch-area)
+  * [High throughput data processing model](#high-throughput-data-processing-model)
+  * [Interactive analysis with Jupyter Notebooks](#interactive-analysis-with-jupyter-notebooks)
+  * [Software portability with containers](#software-portability-with-containers)
+  * [Integration with scalable external storage](#integration-with-scalable-external-storage)
+  * [Interoperability with existing platforms](#interoperability-with-existing-platforms)
+  * [Performance evaluation of staging and scratch area](#performance-evaluation-of-staging-and-scratch-area)
 
 
 ---
 
-## 1. Introduction
+# Introduction
 
 * Spider at a glance:
 
@@ -26,7 +26,7 @@
 
 ![Spider backbone](/images/Spider_backbone.png)
 
-## Welcome to spider
+# Welcome to spider
 
 Mandatory section.
 
@@ -39,7 +39,7 @@ About Spider: http://doc.spider.surfsara.nl/en/latest/Pages/about.html
 The accounts have been sent to your email. Your project is called `surfadvisors`.
 Login and run your first job: http://doc.spider.surfsara.nl/en/latest/Pages/getting_started.html
 
-## Spider features
+# Spider features
 
 Pick your favourite flavour.
 
@@ -54,7 +54,7 @@ Pick your favourite flavour.
 ### Software portability with containers 
 (Analysis with containers)
 
-### Integration with scalable storage 
+### Integration with scalable external storage 
 (Accessing data from external storage systems)
 
 ### Interoperability with existing platforms 
