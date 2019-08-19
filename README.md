@@ -97,10 +97,22 @@ Your analysis on Spider can be run with software that was installed either by th
 Interested? Try out the example [here](https://github.com/sara-nl/spidercourse/blob/master/extras/singularity-usage-adv.md).
 
 ### Integration with scalable external storage 
-(Accessing data from external storage systems)
+
+You can download your raw data on Spider before you start your analysis. However, if you need to analyse data in excess of hundreds of TBs, your data is probably stored elsewhere, most likely on a scalable external storage system. Such a storage system for storing and retrieving huge amounts of data, is `dCache`. `dCache` consists of magnetic tape storage and hard disk storage and both are addressed by a common file system. Wouldn't it be convenient to simply download the data to be analysed on the fly from dCache, similar to the `Grid processing model` but without using Grid certificates? 
+
+This can be achieved thanks to `dCache macaroons` and the high bandwidth connection betwen dCache and Spider (up to 1200 Gbit/s). In this example, you will:
+
+- make use of `dCache macaroons` within Spider
+- run your analysis by fetchin data on the fly directly from dCache 
+- evaluate options for large scale data analysis automation
+
+Interested? Try out the example [here](https://github.com/sara-nl/spidercourse/blob/master/extras/macaroons-usage-adv.md).
 
 ### Interoperability with existing platforms 
-(Software distribution and analysis on Cloud)
+
+- Software distribution and analysis on Cloud
+
+Interested? Try out the example [here](https://github.com/sara-nl/spidercourse/blob/master/extras/cloud-usage-adv.md).
 
 ### Performance of staging and scratch area
 
