@@ -11,7 +11,7 @@
   * [Software portability with containers](#software-portability-with-containers)
   * [Integration with scalable external storage](#integration-with-scalable-external-storage)
   * [Interoperability with existing platforms](#interoperability-with-existing-platforms)
-  * [Performance evaluation of staging and scratch area](#performance-evaluation-of-staging-and-scratch-area)
+  * [Performance of staging and scratch area](#performance-of-staging-and-scratch-area)
 
 
 ---
@@ -28,23 +28,32 @@
 
 # Welcome to spider
 
-Mandatory section.
+This section is mandatory as it includes the prerequisites to start using the platform. By the end of this section you will have:
+
+- A good grasp for the purpose of the platform
+- Logged in to the system
+- Submitted your first Spider job
 
 ### Getting familiar with the platform
 
-About Spider: http://doc.spider.surfsara.nl/en/latest/Pages/about.html
+As an advisor you often search for the best suited platform(s) to match users' requirements. 
+In order to understand what Spider can offer, we ask you to read through our wiki introduction page [here](http://doc.spider.surfsara.nl/en/latest/Pages/about.html).
 
 ### Getting started
 
-The accounts have been sent to your email. Your project is called `surfadvisors`.
-Login and run your first job: http://doc.spider.surfsara.nl/en/latest/Pages/getting_started.html
+Let's start using the platform.  Your project is called `surfadvisors`. and your personal account has been sent to your email.
+To setup your account, access the platform and run your first Spider job, please follow the instructions in our wiki page [here](http://doc.spider.surfsara.nl/en/latest/Pages/getting_started.html)
 
 # Spider features
 
-Pick your favourite flavour.
+The examples below can be run independently or in the proposed sequence. 
+So pick your favourite flavor to explore the Spider features!
 
 ### Collaboration within your project 
-(Analysis in project spaces)
+
+You may have already made yourself familiar with the project spaces on Spider. If not, don't worry. In this example you will make use of the collaborative features by running a data analysis in project spaces. 
+
+Interested? Try out the example [here](https://github.com/sara-nl/spidercourse/blob/master/extras/cephfs-usage-adv.md)
 
 ### High throughput data processing model 
 (Analysis on local scratch space on worker nodes)
@@ -60,7 +69,7 @@ Pick your favourite flavour.
 ### Interoperability with existing platforms 
 (Software distribution and analysis on Cloud)
 
-### Performance evaluation of staging and scratch area
+### Performance of staging and scratch area
 
 
 
