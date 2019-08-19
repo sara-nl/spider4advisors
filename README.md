@@ -103,14 +103,20 @@ You can download your raw data on Spider before you start your analysis. However
 This can be achieved thanks to `dCache macaroons` and the high bandwidth connection betwen dCache and Spider (up to 1200 Gbit/s). In this example, you will:
 
 - make use of `dCache macaroons` within Spider
-- run your analysis by fetchin data on the fly directly from dCache 
+- run your analysis by fetching data on the fly directly from dCache 
 - evaluate options for large scale data analysis automation
 
 Interested? Try out the example [here](https://github.com/sara-nl/spidercourse/blob/master/extras/macaroons-usage-adv.md).
 
 ### Interoperability with existing platforms 
 
-- Software distribution and analysis on Cloud
+Recompiling your software everytime you switch processing platforms or moving data around different systems is both time-consuming and makes reproducibility of your work difficult. Spider aims to be a connecting platform and our answer to the interoperability challenges between systems is: Singularity for software portability (see [Software portability with containers](#software-portability-with-containers)), CVMFS/Softdrive for software distribution and `dCache macaroons` as a user-friendly interface to large storage systems (see [Integration with scalable external storage](#integration-with-scalable-external-storage)). We will combine all this in one example that can run without modifications on HPC Cloud and Spider. In particular, we will:
+
+- wrap our software in a Singularity container
+- install the container in a central place and distribute it automagically across different systems with CVMFS/Softdrive 
+- get our input from dCache with macaroons (no Grid certificates)
+- fetch our code from Github
+- run the same analysis on multiple platforms, no vendor lock-in 
 
 Interested? Try out the example [here](https://github.com/sara-nl/spidercourse/blob/master/extras/cloud-usage-adv.md).
 
