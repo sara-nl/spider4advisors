@@ -110,7 +110,7 @@ Interested? Try out the example [here](https://github.com/sara-nl/spidercourse/b
 
 ### Interoperability with existing platforms 
 
-Recompiling your software everytime you switch processing platforms or moving data around different systems is both time-consuming and makes reproducibility of your work difficult. Spider aims to be a connecting platform and our answer to the interoperability challenges between systems is: Singularity for software portability (see [Software portability with containers](#software-portability-with-containers)), CVMFS/Softdrive for software distribution and `dCache macaroons` as a user-friendly interface to large storage systems (see [Integration with scalable external storage](#integration-with-scalable-external-storage)). We will combine all this in one example that can run without modifications on HPC Cloud and Spider. In particular, we will:
+Recompiling your software everytime you switch processing platforms or moving data around different systems is both time-consuming and makes reproducibility of your work difficult. Spider aims to be a connecting platform and our answer to the interoperability challenges between systems is: `Singularity` for software portability (see [Software portability with containers](#software-portability-with-containers)), `CVMFS/Softdrive` for software distribution and `dCache macaroons` as a user-friendly interface to large storage systems (see [Integration with scalable external storage](#integration-with-scalable-external-storage)). We will combine all this in one example that can run without modifications on HPC Cloud and Spider. In particular, we will:
 
 - wrap our software in a Singularity container
 - install the container in a central place and distribute it automagically across different systems with CVMFS/Softdrive 
@@ -121,6 +121,13 @@ Recompiling your software everytime you switch processing platforms or moving da
 Interested? Try out the example [here](https://github.com/sara-nl/spidercourse/blob/master/extras/cloud-usage-adv.md).
 
 ### Performance of staging and scratch area
+
+For a high-throughput platform such as Spider important aspects are; (i) the network bandwidth for the transport of data sets, (ii) the storage device of I/O operations, but also (iii) the speed with which we write data and read data from storage. On Spider you have two options for storing files; (a) globally mounted [Ceph](https://ceph.io/) disk storage that is accessed through the shared [CephFS](https://ceph.io/ceph-storage/file-system/) filesystem and (b) local disk storage (often referred to as local scratch space) on the worker node (WN) that is accessed within your jobs only. Your files in /home/[username] and /project/[projectname] are provisioned on Ceph, while the local scratch space for a batch job is provisioned via the number of cores `-c` as 80 Gbyte per core. In this example we will investigate the performance of staging (or CephFS) and scratch area. This is an advanced example if you are interested in performance evaluation as we will:
+
+- discuss technical information on HDD and SSD disk types 
+- test write/read speeds on Spider on HDDs and SSDs
+
+Interested? Try out the example [here](https://github.com/sara-nl/spidercourse/blob/master/extras/local-vs-cephfs-adv.md).
 
 ### Bring your own example
 
