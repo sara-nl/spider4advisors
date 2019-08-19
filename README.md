@@ -89,6 +89,14 @@ Interested? Try out the example [here](https://github.com/sara-nl/spidercourse/b
 ### Software portability with containers 
 (Analysis with containers)
 
+Your analysis on Spider can be run with software that was installed either by the software manager in your project or our sys admin of the system or yourself. What if you want to run the same analysis on another system(s)? Or you want to simply test some workflow on Spider but don't want to install the necessary software from scratch or mess up an existing installation? This is where containers can come in extremely handy. As you do not have admin rights on the system, we do not support Docker containers. But the good news is that we do support Singularity containers! In this example, you will:
+
+- use a Singularity image with pre-installed software
+- import the container into your workflows
+- run the analysis by using the software from a `Singularity` container
+
+Interested? Try out the example [here](https://github.com/sara-nl/spidercourse/edit/master/extras/singularity-usage-adv.md).
+
 ### Integration with scalable external storage 
 (Accessing data from external storage systems)
 
