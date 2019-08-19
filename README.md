@@ -59,10 +59,20 @@ You may have already made yourself familiar with the project spaces on Spider. I
 - make use of the project spaces collaborative features  
 - understand how role-based access works on Spider  
 
-Interested? Try out the example [here](https://github.com/sara-nl/spidercourse/blob/master/extras/cephfs-usage-adv.md)
+Interested? Try out the example [here](https://github.com/sara-nl/spidercourse/blob/master/extras/cephfs-usage-adv.md).
 
 ### High throughput data processing model 
-(Analysis on local scratch space on worker nodes)
+
+Spider is a high-throughput data-processing platform which means enabling processing of large structured data sets in short time spans. A method to achieve efficient data I/O is to split up the data processing pipelines into many parallel independent jobs where each job retrieves a chunk of data to process on the *local scratch* storage of a worker node (e.g. SSDs). This data processing model is called 'embarrassingly parallel' jobs, or else the known 'Grid processing model'.
+
+Even if you never used the Grid before, this example will show you how increase the I/O performance of your jobs by using  *local scratch* and fast network connections between your input/output data storage locations. Particularly, you will:
+
+- run a data analysis with input/output data located on your project space (on CephFS; Ceph File System)
+- copy input/output data to/from a large scratch area on local SSD
+- make use of the globally defined variable `$TMPDIR`
+
+Interested? Try out the example [here](https://github.com/sara-nl/spidercourse/blob/master/extras/tmpdir-usage-adv.md).
+
 
 ### Interactive analysis with Jupyter Notebooks
 
