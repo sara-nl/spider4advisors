@@ -80,12 +80,12 @@ One of the great things about Spider is that -opposite to the Grid- it allows fo
 
 Lets see how to use Jupyter Notebooks on Spider. In this example, you will:
 
-- inspect the Spider Notebook flavours and  
+- inspect the Spider Notebook flavours   
 - launch a Notebook and inspect the environment
 - install packages within your Notebook or use existing software to run an analysis
 - display and publish your results
 
-Interested? Try out the example [here]()
+Interested? Try out the example [here](https://github.com/sara-nl/spidercourse/blob/master/extras/jupyter-usage.md).
 
 ### Software portability with containers 
 (Analysis with containers)
@@ -100,6 +100,6 @@ Interested? Try out the example [here]()
 
 ### Bring your own example
 
-If you already understood the basics of Spider usage and you have a good example in mind to fit in this platform, please try it out! You can port an application from your own system to Spider or vise-versa or even think of ways to integrate with other existing platforms at SURFsara or public clouds. 
+If you already understood the basics of Spider usage and you have a good example in mind to fit in this platform, please try it out! You can port an application from your own system to Spider or vice-versa or even think of ways to integrate with other existing platforms at SURFsara or public clouds. 
 
 Need help? Ask for help to the Spider advisors in the room ;)
