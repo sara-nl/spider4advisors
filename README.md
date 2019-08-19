@@ -1,10 +1,10 @@
 **Contents of the page:**
 
-* [Introduction](#introduction)
-* [Welcome to spider](#welcome-to-spider)
-  * [Getting familiar with the platform](#getting-familiar-with-the-platform)
-  * [Getting started](#getting-started)
-* [Spider features](#spider-features)
+* [1. Introduction](#1-introduction)
+* [2. Welcome to spider](#2-welcome-to-spider)
+  * [i. Getting familiar with the platform](#i-getting-familiar-with-the-platform)
+  * [ii. Getting started](#ii-getting-started)
+* [3. Spider features](#3-spider-features)
   * [Collaboration within your project](#collaboration-within-your-project) 
   * [High throughput data processing model](#high-throughput-data-processing-model)
   * [Interactive analysis with Jupyter Notebooks](#interactive-analysis-with-jupyter-notebooks)
@@ -17,38 +17,38 @@
 
 ---
 
-# Introduction
-
-* Spider at a glance:
-
-![Spider poster](/images/Spider_poster.png)   
+# 1. Introduction
 
 * Spider backbone:
 
 ![Spider backbone](/images/Spider_backbone.png)
 
-# Welcome to spider
+* Spider at a glance:
 
-This section is mandatory as it includes the prerequisites to start using the platform. By the end of this section you will have:
+![Spider poster](/images/Spider_poster.png)   
+
+
+# 2. Welcome to spider
+
+This section includes the prerequisites to start using the platform. It consists of two parts: i) Getting familiar with the platform and ii) Getting started. We ask to finish both parts before moving to the next section with advanced features. By the end of this section you will have:
 
 - A good grasp for the purpose of the platform
 - Logged in to the system
 - Submitted your first Spider job
 
-### Getting familiar with the platform
+### i. Getting familiar with the platform
 
 As an advisor you often search for the best suited platform(s) to match users' requirements. 
 In order to understand what Spider can offer, we ask you to read through our wiki introduction page [here](http://doc.spider.surfsara.nl/en/latest/Pages/about.html).
 
-### Getting started
+### ii. Getting started
 
 Let's start using the platform.  Your project is called `surfadvisors` and your personal account has been sent to your email.
 To setup your account, access the platform and run your first Spider job, please follow the instructions in our wiki page [here](http://doc.spider.surfsara.nl/en/latest/Pages/getting_started.html).
 
-# Spider features
+# 3. Spider features
 
-The examples below can be run independently or in the proposed sequence. 
-So pick your favourite flavor to explore the Spider features!
+This section includes several different features of the platform. It consists of several parts and each part contains an example that can be run independently. You can run the examples in the proposed sequence or simply pick your favourite flavor to start exploring the Spider features!
 
 ### Collaboration within your project 
 
