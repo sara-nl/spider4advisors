@@ -41,7 +41,7 @@ In order to understand what Spider can offer, we ask you to read through our wik
 
 ### Getting started
 
-Let's start using the platform.  Your project is called `surfadvisors`. and your personal account has been sent to your email.
+Let's start using the platform.  Your project is called `surfadvisors` and your personal account has been sent to your email.
 To setup your account, access the platform and run your first Spider job, please follow the instructions in our wiki page [here](http://doc.spider.surfsara.nl/en/latest/Pages/getting_started.html)
 
 # Spider features
@@ -51,7 +51,13 @@ So pick your favourite flavor to explore the Spider features!
 
 ### Collaboration within your project 
 
-You may have already made yourself familiar with the project spaces on Spider. If not, don't worry. In this example you will make use of the collaborative features by running a data analysis in project spaces. 
+The Spider environment is optimised for collaboration. Every user of the platform is member of a project and every project in Spider gets an individual workspace where the project members can collaborate by sharing data, software or workflows. 
+
+You may have already made yourself familiar with the project spaces on Spider. If not, don't worry. In this example you will:
+
+- run a data analysis in project spaces
+- make use of the project spaces collaborative features  
+- understand how role-based access works on Spider  
 
 Interested? Try out the example [here](https://github.com/sara-nl/spidercourse/blob/master/extras/cephfs-usage-adv.md)
 
