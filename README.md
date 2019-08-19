@@ -12,6 +12,7 @@
   * [Integration with scalable external storage](#integration-with-scalable-external-storage)
   * [Interoperability with existing platforms](#interoperability-with-existing-platforms)
   * [Performance of staging and scratch area](#performance-of-staging-and-scratch-area)
+  * [Bring your own example](#bring-your-own-example)
 
 
 ---
@@ -42,7 +43,7 @@ In order to understand what Spider can offer, we ask you to read through our wik
 ### Getting started
 
 Let's start using the platform.  Your project is called `surfadvisors` and your personal account has been sent to your email.
-To setup your account, access the platform and run your first Spider job, please follow the instructions in our wiki page [here](http://doc.spider.surfsara.nl/en/latest/Pages/getting_started.html)
+To setup your account, access the platform and run your first Spider job, please follow the instructions in our wiki page [here](http://doc.spider.surfsara.nl/en/latest/Pages/getting_started.html).
 
 # Spider features
 
@@ -73,8 +74,18 @@ Even if you never used the Grid before, this example will show you how increase 
 
 Interested? Try out the example [here](https://github.com/sara-nl/spidercourse/blob/master/extras/tmpdir-usage-adv.md).
 
-
 ### Interactive analysis with Jupyter Notebooks
+
+One of the great things about Spider is that -opposite to the Grid- it allows for interactive analysis of large volumes of data. For this purpose we offer Jupyter Notebooks that can be launched on the same powerful high-throughput infrastructure of Spider. The existing Spider users can use Notebooks to run interactively some analysis with data stored/produced on Spider, or debug their pipelines with software already installed on the project space before submitting production runs, or even as a way to pack their work for replication and sharing with their colleagues. The Spider Notebooks is a supporting tool to help your work on the platform but it is not offered as a standalone component or for cases such as classrooms. 
+
+Lets see how to use Jupyter Notebooks on Spider. In this example, you will:
+
+- inspect the Spider Notebook flavours and  
+- launch a Notebook and inspect the environment
+- install packages within your Notebook or use existing software to run an analysis
+- display and publish your results
+
+Interested? Try out the example [here]()
 
 ### Software portability with containers 
 (Analysis with containers)
@@ -87,5 +98,8 @@ Interested? Try out the example [here](https://github.com/sara-nl/spidercourse/b
 
 ### Performance of staging and scratch area
 
+### Bring your own example
 
+If you already understood the basics of Spider usage and you have a good example in mind to fit in this platform, please try it out! You can port an application from your own system to Spider or vise-versa or even think of ways to integrate with other existing platforms at SURFsara or public clouds. 
 
+Need help? Ask for help to the Spider advisors in the room ;)
