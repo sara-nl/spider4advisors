@@ -64,9 +64,9 @@ Interested? Try out the example [here](https://github.com/sara-nl/spidercourse/b
 
 ### High throughput data processing model 
 
-Spider is a high-throughput data-processing platform which means enabling processing of large structured data sets in short time spans. A method to achieve efficient data I/O is to split up the data processing pipelines into many parallel independent jobs where each job retrieves a chunk of data to process on the *local scratch* storage of a worker node (e.g. SSDs). This data processing model is called 'embarrassingly parallel' jobs, or else the known 'Grid processing model'.
+Spider is a high-throughput data-processing platform which means enabling processing of large structured data sets in short time spans. A method to achieve efficient data I/O is to split up the data processing pipelines into many parallel independent jobs where each job retrieves a chunk of data to process on the *local scratch* storage of a worker node (e.g. SSDs). This data processing model is called `embarrassingly parallel` jobs, or else the known `Grid processing model`.
 
-Even if you never used the Grid before, this example will show you how increase the I/O performance of your jobs by using  *local scratch* and fast network connections between your input/output data storage locations. Particularly, you will:
+Even if you never used the Grid before, this example will show you how to increase the I/O performance of your jobs by using  *local scratch* and fast network connections between the processing nodes and your input/output data storage locations. Particularly, you will:
 
 - run a data analysis with input/output data located on your project space (on CephFS; Ceph File System)
 - copy input/output data to/from a large scratch area on local SSD
@@ -76,11 +76,10 @@ Interested? Try out the example [here](https://github.com/sara-nl/spidercourse/b
 
 ### Interactive analysis with Jupyter Notebooks
 
-One of the great things about Spider is that -opposite to the Grid- it allows for interactive analysis of large volumes of data. For this purpose we offer Jupyter Notebooks that can be launched on the same powerful high-throughput infrastructure of Spider. The existing Spider users can use Notebooks to run interactively some analysis with data stored/produced on Spider, or debug their pipelines with software already installed on the project space before submitting production runs, or even as a way to pack their work for replication and sharing with their colleagues. The Spider Notebooks is a supporting tool to help your work on the platform but it is not offered as a standalone component or for cases such as classrooms. 
+One of the great things about Spider is that -opposite to the Grid- it allows for interactive analysis of large volumes of data. For this purpose we offer Jupyter Notebooks that can be launched on the same powerful high-throughput infrastructure of Spider. The existing Spider users can use Notebooks to run interactively some analysis with data stored/produced on Spider, or debug/prototype their pipelines with software already installed on their project spaces before submitting production runs, or even as a way to pack their work for replication and sharing with their colleagues. The Spider Notebooks is a supporting tool for all this, but not offered as a standalone service for non Spider users or training in classrooms. 
 
 Lets see how to use Jupyter Notebooks on Spider. In this example, you will:
 
-- inspect the Spider Notebook flavours   
 - launch a Notebook and inspect the environment
 - install packages within your Notebook or use existing software to run an analysis
 - display and publish your results
