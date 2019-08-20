@@ -13,14 +13,14 @@ Let us download the scripts that will run the job for you - one script for setti
 cd $HOME
 mkdir ecoli-analysis-cephfs
 cd ecoli-analysis-cephfs
-wget https://raw.githubusercontent.com/sara-nl/spidercourse/master/scripts/job-submit-variant-calling-cephfs-adv.sh
+wget https://raw.githubusercontent.com/sara-nl/spider4advisors/master/examples/job-submit-variant-calling-cephfs.sh
 
-wget https://raw.githubusercontent.com/sara-nl/spidercourse/master/scripts/run-variant-calling-cephfs-adv.sh
+wget https://raw.githubusercontent.com/sara-nl/spider4advisors/master/examples/run-variant-calling-cephfs.sh
 ```
 Let us inspect what theese scripts will do:
 
 ```sh
-cat job-submit-variant-calling-cephfs-adv.sh
+cat job-submit-variant-calling-cephfs.sh
 
 #!/bin/bash
 #SBATCH -c 1
@@ -28,7 +28,7 @@ cat job-submit-variant-calling-cephfs-adv.sh
 
 export PATH="/project/surfadvisors/Software/ecoli-analysis-software/miniconda2/bin:$PATH"
 
-bash $HOME/ecoli-analysis-cephfs/run-variant-calling-cephfs-adv.sh 
+bash $HOME/ecoli-analysis-cephfs/run-variant-calling-cephfs.sh 
 ```
 
 The #SBATCH flags that you see in the script have the following function:
@@ -40,17 +40,17 @@ We then set up the software environment for your analysis and then run the scrip
 
 > **_Food for brain:_**
 >
-> * Nice to have the software ready to use, but who installed it? And do I have the permission to use this software?
+> * Nice to have the software ready to use, but who installed it? And do you have the permission to use this software?
 > * The software was installed by the 'Software manager' of the surfadvisors project. Do you know who this angel is ;)? Hint: getent group surfadvisors-sw
 > * Do you know if you are a Software manager? If not, do you know what 'role' you have in the project?
 
 Let us submit the job first and then inspect the steps while the job runs
 
 ```sh
-sbatch --job-name=var-call -J 'var-call' --output=%x-%j.out job-submit-variant-calling-cephfs-adv.sh
+sbatch --job-name=var-call -J 'var-call' --output=%x-%j.out job-submit-variant-calling-cephfs.sh
 squeue -u $USER
 
-cat run-variant-calling-cephfs-adv.sh
+cat run-variant-calling-cephfs.sh
 
 #!/bin/bash
 set -e
@@ -132,7 +132,7 @@ cat var-call-tmpdir-jobID.out #replace the jobID
 #Another check would be the output of the following command
 grep -v "#" $HOME/ecoli-analysis-cephfs/results/vcf/SRR2589044_final_variants.vcf | wc -l
 
-#The answer should be 10 (the number if expected variants detected in this population)
+#The answer should be 10 (the number of expected variants detected in this population)
 ```
 
 In this example you ran analysis on data that was downloaded by Data manager in the Data project space, using Software that was installed by a Software manager and looked into the possibility of sharing the results with your colleagues in your project. Pretty cool collaboration features right? 
