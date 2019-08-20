@@ -2,7 +2,7 @@
 
 ### Background information
 
-The internal project that delivers the Ceph storage to Spider is Apollo and it uses HDD (spinning) disk technology to provide Ceph as a storage solution. The read/write speeds of modern HDD disks are typically around 150 Mbyte/sec. Ceph utilizes an array of disks to increase the write/read speeds of data via CephFS to obtain a performance that is higher than that of single disk. This works particularly well for writing data as his is mainly governed by CephFS. It works less well for reading as this is mainly governed by your application. Also note that on Ceph your data has been setup with a 3-fold redundancy to prevent data loss as consequency of disk failures.
+The internal project that delivers the Ceph storage to Spider is Apollo and it uses HDD (spinning) disk technology to provide Ceph as a storage solution. The read/write speeds of modern HDD disks are typically around 150 Mbyte/sec. Ceph utilizes an array of disks to increase the write/read speeds of data via CephFS to obtain a performance that is higher than that of single disk. This works particularly well for writing data as his is mainly governed by CephFS. It works less well for reading as this is mainly governed by your application. Also note that on Ceph your data has been setup with a 3-fold redundancy to prevent data loss as consequence of disk failures.
 
 The disk storage on the Spider WNs is either HDD or SSD and can be selected via the Slurm `--constraint` option. Here we focus on the local storage in terms of the SSDs only as an example to clarify the difference in speeds obtained when running your data processing on a shared resource vs. a local resource. The SSDs in Spider are of the NVMe type. These NVMe SSD disks provide write speeds up to 3500 Mbyte/sec, whereas standard SATA SSD disks provide write/read speeds of 500/530 Mbyte/sec. The local resource mode for data storage (and processing) for some of you may be reminiscent of the way in which the high-throughput Grid platform is utilized and this is intended as such.
 
@@ -22,9 +22,9 @@ chmod u+x tmpdir_dd_large3_ssd.sh
 #submit the job for execution
 sbatch tmpdir_dd_large3_ssd.sh
 ```
-  
+
 What happened? The job performs 3 tests; A, B and C. In test A it writes/reads a small file (tens of Gbyte) first to/from a local SSD on a WN and then to/from a folder in your /home folder on Ceph. Test B is identical to A, except that it uses files that are much larger (*note this part takes about 20-30m*). Test C repeats only the reading action on the small files from test A.  
-  
+
 The expected (approximate) output is:
 
 |Type          | Speed |  
@@ -39,8 +39,8 @@ The expected (approximate) output is:
 |B2 read Ceph  | 0.5 GB/s|  
 |C read SSD    | 1 GB/s|  
 |C read Ceph   | 0.5 GB/s|  
-  
-  
+
+
 > *Food for Brain*    
 >  
 > Q: Why is there a difference between A2 and B2 ?    
@@ -60,7 +60,7 @@ The expected (approximate) output is:
 
 * Let's replace the SSD disks by HDD disks and run the example again:
 
-We can replace the local scratch SSD disks in the above dd tests by HDD disks and check their write/read perfomance relative to Ceph. 
+We can replace the local scratch SSD disks in the above dd tests by HDD disks and check their write/read perfomance relative to Ceph.
 
 ```sh
 cd $HOME/performance-tests
@@ -72,7 +72,7 @@ sbatch tmpdir_dd_large3_hdd.sh
 ```  
 
 What happened now? The script again performs 3 tests; A, B and C. In test A it writes/reads a small file (tens of Gbyte) first to/from a local HDD on a WN and then to/from a folder in your /home folder on Ceph. Test B is identical to A, except that it uses files that are much larger (*note this part takes about 20-30m*). Test C repeats only the reading action on the small files from test A.  
-  
+
 The expected (approximate) output is:
 
 |Type          | Speed |  
@@ -87,10 +87,9 @@ The expected (approximate) output is:
 |B2 read Ceph  | 0.5 GB/s|  
 |C read HDD    | 4 GB/s|  
 |C read Ceph   | 0.5 GB/s|  
-  
-  
+
+
 > *Food for Brain*   
-> 
+>
 > Q: What type of storage/processing solution (local scratch vs. Ceph) would you advise to a new user who needs to process 100's of TB of data with typical data files of about 100 GB in size ?    
 > A: TBD
-  
