@@ -102,7 +102,7 @@ for fq1 in $ecolipath/data/trimmed_fastq_small/*_1.trim.sub.fastq
 
 cp -r $TMPDIR/var-calling/results $HOME/ecoli-analysis-tmpdir/
 ```
-Here we copy the input data to the $TMPDIR. In the end we copy the output to our $HOME directory as the $TMPDIR is removed after thew job finishes amd we will lose our results. You can compare if the performance was better/worse/equivalent to the performance with the jobs when the data is in project spaces.
+Here we copy the input data to the $TMPDIR. In the end we copy the output to our $HOME directory as the $TMPDIR is removed after the job finishes and we will lose our results. You can compare if the performance was better/worse/equivalent to the performance with the jobs when the data is in project spaces.
 
 > **_Food for brain:_**
 >
