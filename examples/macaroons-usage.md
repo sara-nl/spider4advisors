@@ -108,7 +108,7 @@ cp -r $TMPDIR/var-calling/results $HOME/ecoli-analysis-dcache/
 > * Is this data freely available to anyone? Try copying the link in a browser on your laptop and see what happens.
 > * Dosen't look like it requires any authentication. What if your data cannot be publicly made available?
 
-The Ecoli probably do not mind their data being public but we are all very aware of data privacy - and this is not the case
+The E.coli probably do not mind their data being public but we are all very aware of data privacy - and this is not the case
 only for genomic data
 but research data in most domains. So how was the authentication performed for your input data? 
 
