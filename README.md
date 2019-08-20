@@ -119,7 +119,7 @@ Recompiling your software everytime you switch processing platforms or moving da
 - fetch our code from Github
 - run the same analysis on multiple platforms, no vendor lock-in 
 
-Interested? Try out the example [here](https://github.com/sara-nl/spidercourse/blob/master/extras/cloud-usage-adv.md).
+Interested? Try out the example [here](examples/cloud-usage.md).
 
 ### Performance of staging and scratch area
 
