@@ -111,7 +111,7 @@ done
 cp /project/surfadvisors/Software/elixir-singularity.sif  $HOME/ecoli-analysis-container
 
 #Make sure the path to store the results in the variant calling script does not already have the results when you run the job
-sbatch --job-name=var-call-singularity -J 'var-call-singularity' --output=%x-%j.out job-submit-variant-calling-singularity-adv.sh
+sbatch --job-name=var-call-singularity -J 'var-call-singularity' --output=%x-%j.out job-submit-variant-calling-singularity.sh
 ```
 
 Did the analysis run successfully? To test the status of your job you can run the command
