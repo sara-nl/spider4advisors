@@ -13,6 +13,7 @@
   * [Interoperability with existing platforms](#interoperability-with-existing-platforms)
   * [Performance of staging and scratch area](#performance-of-staging-and-scratch-area)
   * [Bring your own example](#bring-your-own-example)
+* [4. Feedback](#4-feedback) 
 
 
 ---
@@ -134,3 +135,11 @@ Interested? Try out the example [here](https://github.com/sara-nl/spidercourse/b
 If you already understood the basics of Spider usage and you have a good example in mind to fit in this platform, please try it out! You can port an application from your own system to Spider or vice-versa or even think of ways to integrate with other existing platforms at SURFsara or public clouds. 
 
 Need help? Ask for help to the Spider advisors in the room ;)
+
+# 4. Feedback
+
+We hope that you enjoyed your first journey with Spider! You probably have already gathered some feedback for the platform and we would like to hear this :)
+
+Please fill in the survey [here](https://natalieda.wufoo.com/forms/s1h649s50nu702b/) by Friday 24th August, end of the day. It will take you less than 5 minutes but help us a lot!
+
+Next, we invite you for coffee on Monday at [TODO] to discuss any other comments from your ecperience with the platform.
