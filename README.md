@@ -60,7 +60,7 @@ You may have already made yourself familiar with the project spaces on Spider. I
 - make use of the project spaces collaborative features  
 - understand how role-based access works on Spider  
 
-Interested? Try out the example [here](https://github.com/sara-nl/spidercourse/blob/master/extras/cephfs-usage-adv.md).
+Interested? Try out the example [here](examples/cephfs-usage.md).
 
 ### High throughput data processing model 
 
