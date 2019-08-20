@@ -85,7 +85,7 @@ Lets see how to use Jupyter Notebooks on Spider. In this example, you will:
 - install packages within your Notebook or use existing software to run an analysis
 - display and publish your results
 
-Interested? Try out the example [here](https://github.com/sara-nl/spidercourse/blob/master/extras/jupyter-usage.md).
+Interested? Try out the example [here](examples/jupyter-usage.md).
 
 ### Software portability with containers 
 
