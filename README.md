@@ -73,7 +73,7 @@ Even if you never used the Grid before, this example will show you how to increa
 - copy input/output data to/from a large scratch area on local SSD
 - make use of the globally defined variable `$TMPDIR`
 
-Interested? Try out the example [here](https://github.com/sara-nl/spidercourse/blob/master/extras/tmpdir-usage-adv.md).
+Interested? Try out the example [here](examples/tmpdir-usage.md).
 
 ### Interactive analysis with Jupyter Notebooks
 
