@@ -107,7 +107,7 @@ This can be achieved thanks to `dCache macaroons` and the high bandwidth connect
 - run your analysis by fetching data on the fly directly from dCache 
 - evaluate options for large scale data analysis automation
 
-Interested? Try out the example [here](https://github.com/sara-nl/spidercourse/blob/master/extras/macaroons-usage-adv.md).
+Interested? Try out the example [here](examples/macaroons-usage.md).
 
 ### Interoperability with existing platforms 
 
