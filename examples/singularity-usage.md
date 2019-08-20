@@ -3,8 +3,8 @@
 We will be using a genomics pipeline example to test the software portability methods offered on Spider by using containerisation.
 
 The data we are going 
-to use is part of a long-term evolution experiment led by [Richard Lenski](https://en.wikipedia.org/wiki/E._coli_long-term_evolution_experiment)
-to assess adaptation in E. coli. A population was propagated for more than 50,000 
+to use is part of a long-term evolution [experiment](https://en.wikipedia.org/wiki/E._coli_long-term_evolution_experiment) 
+led by Richard Lenski to assess adaptation in E. coli. A population was propagated for more than 50,000 
 generations in a glucose-limited minimal medium. We will be working with three sample events from the Ara-3 strain of this 
 experiment, one from 5,000 generations, one from 15,000 generations, and one from 50,000 generations to study how the 
 population changed. Generally, the quality of raw data is assessed and data is 'trimmed'. In this example, you will download 
