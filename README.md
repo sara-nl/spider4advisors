@@ -140,6 +140,6 @@ Need help? Ask for help to the Spider advisors in the room ;)
 
 We hope that you enjoyed your first journey with Spider! You probably have already gathered some feedback for the platform and we would like to hear this :)
 
-Please fill in the survey [here](https://natalieda.wufoo.com/forms/s1h649s50nu702b/) by Friday 24th August, end of the day. It will take you less than 5 minutes but help us a lot!
+Please fill in the survey [here](https://natalieda.wufoo.com/forms/s1h649s50nu702b/) *by Friday 24th August, end of the day*. It will take you less than 5 minutes but help us a lot!
 
-Next, we invite you for coffee on Monday at [TODO] to discuss any other comments from your ecperience with the platform.
+Next, we invite you for coffee on *Monday at 16:00* to discuss any other comments from your ecperience with the platform.
