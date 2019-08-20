@@ -128,7 +128,7 @@ For a high-throughput platform such as Spider important aspects are; (i) the net
 - discuss technical information on HDD and SSD disk types 
 - test write/read speeds on Spider on HDDs and SSDs
 
-Interested? Try out the example [here](https://github.com/sara-nl/spidercourse/blob/master/extras/local-vs-cephfs-adv.md).
+Interested? Try out the example [here](examples/local-vs-cephfs.md).
 
 ### Bring your own example
 
