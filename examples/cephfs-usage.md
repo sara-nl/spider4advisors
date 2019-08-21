@@ -139,7 +139,7 @@ In this example you ran analysis on data that was downloaded by Data manager in 
 
 > **_Food for brain:_**
 >
-> * What if you want to share results with collaborators who are not a part of the project at all? Hint: ls /project. 
+> * What if you want to share results with collaborators who are not a part of the project at all? Hint: ls /project/spider4advisors/. 
 > * How about opening a browser on your laptop and going to this site -  https://public.spider.surfsara.nl/project/spidercourse/ecoli-analysis/.  Whose project space is this? This is the 'untrimmed' raw data that you used for your analysis.
 > * Can you accidentally remove the raw data from your project space Data folder?
 > * Can you accidentally remove the Software from your project space Software folder?
