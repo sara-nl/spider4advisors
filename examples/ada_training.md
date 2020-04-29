@@ -62,7 +62,7 @@ Nothing new so far ;)
 ```sh
 ./ada --tokenfile ada-demo.conf --whoami
 #ERROR: no API specified. Use --api <api> or specify a default API in one of the configuration files (/etc/ada.conf /home/<username>/.ada/ada.conf).
-```sh
+```
 
 This means that we need to specify the api address. In production we will have a default config file in /etc/ada.conf for such settings.
 For now, make your own config file:
@@ -74,7 +74,7 @@ nano ~/.ada/ada.conf
 # Default settings for the ADA script
    api=https://dcacheview.grid.surfsara.nl:22880/api/v1
    #api=https://dolphin12.grid.surfsara.nl:20443/api/v1
-```sh
+```
 
 Test again:
 
