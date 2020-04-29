@@ -147,8 +147,10 @@ rclone --config=tokenfile_dolphin_no_chroot.conf sync ./ada-demo-folder tokenfil
 ### 13. Other Authentication
 
 ```sh
-#proxy
+# Proxy
 ./ada --api https://dcacheview.grid.surfsara.nl:22882/api/v1 --proxy --longlist /pnfs/grid.sara.nl/data/projects.nl/tropomi/natalie/
+
+# Username/password, via a .netrc file
 ./ada --netrc --longlist /pnfs/grid.sara.nl/data/users/anatolid/
 $ cat .netrc
 #machine dcacheview.grid.surfsara.nl
