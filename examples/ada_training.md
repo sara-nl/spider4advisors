@@ -134,10 +134,14 @@ rclone --config=tokenfile_dolphin_no_chroot.conf sync ./ada-demo-folder tokenfil
 #  When you start it, all files in the scope will be listed, including their locality and QoS
 ./ada --tokenfile tokenfile_dolphin_no_chroot.conf --report-staged changes-in-qos-tape /users/anatolid/tape --recursive --api https://dolphin12.grid.surfsara.nl:20443/api/v1
 
+# Delete dir and recreate it
+./ada --tokenfile tokenfile_dolphin_no_chroot.conf --delete /users/anatolid/tape/natalie/ --recursive --api https://dolphin12.grid.surfsara.nl:20443/api/v1
+rclone --config=tokenfile_dolphin_no_chroot.conf sync ./ada-demo-folder tokenfile_dolphin_no_chroot:/users/anatolid/tape/natalie/ -P
+
 # Stage/Unstage
-./ada --tokenfile tokenfile_dolphin_no_chroot.conf --longlist /tape/natalie
-./ada --tokenfile tokenfile_dolphin_no_chroot.conf --stage /tape/natalie/flowers.jpg
-./ada --tokenfile tokenfile_dolphin_no_chroot.conf --unstage /tape/natalie/flowers.jpg
+./ada --tokenfile tokenfile_dolphin_no_chroot.conf --longlist /users/anatolid/tape/natalie/flowers.jpg --api https://dolphin12.grid.surfsara.nl:20443/api/v1
+./ada --tokenfile tokenfile_dolphin_no_chroot.conf --stage /users/anatolid/tape/natalie/flowers.jpg --api https://dolphin12.grid.surfsara.nl:20443/api/v1
+./ada --tokenfile tokenfile_dolphin_no_chroot.conf --unstage /users/anatolid/tape/natalie/flowers.jpg --api https://dolphin12.grid.surfsara.nl:20443/api/v1
 ```
 
 ### 13. Other Authentication
