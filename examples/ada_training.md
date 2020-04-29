@@ -32,7 +32,7 @@ view-macaroon ada-demo.conf  # on Spider
 
 ```sh
 cd SpiderScripts/ada/
-```sh
+```
 
 ### 3. Download a dataset locally
 
