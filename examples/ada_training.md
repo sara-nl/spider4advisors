@@ -119,7 +119,7 @@ Test again:
 
 ### 12. Events and stage/unstage demo on Dophin tape pool 
 
-We run this test on our test cluster because the production version lacks behind.
+We run this test on our test cluster because the production version lags behind.
 
 ```sh
 ./ada --tokenfile tokenfile_dolphin_no_chroot.conf --list /users/anatolid/ --api https://dolphin12.grid.surfsara.nl:20443/api/v1
