@@ -111,7 +111,7 @@ Test again:
 ### 11. Delete a file or directory
 
 ```sh
-./ada --tokenfile ada-demo.conf  --delete /<your-name>/flowers.jpg
+./ada --tokenfile ada-demo.conf --delete /<your-name>/flowers.jpg
 ./ada --tokenfile ada-demo.conf --delete /<your-name>/
 #WARNING: directory '/<your-name>/' is not empty. If you want to remove it and its contents, you can add the --recursive argument.
 ./ada --tokenfile ada-demo.conf --delete /<your-name>/ --recursive [--force]
