@@ -5,14 +5,8 @@
 ### 1. What you need to run the examples
 
 - Access to a terminal (Spider or any other machine)
-- ADA wrapper (will be avail on Spider in production). Get it with:
-
-```sh
-# on Spider or any other machine
-git clone https://github.com/sara-nl/SpiderScripts.git
-```
-- Rclone (avail on Spider, on laptop get it from https://rclone.org/install/)
-
+- ADA wrapper (avail on on laptop get it from: `git clone https://github.com/sara-nl/SpiderScripts.git`
+- Rclone (avail on Spider, on laptop get it from: https://rclone.org/install/)
 - Token to authenticate on dCache. Get the config file that contains your token:
 
 ```sh
