@@ -98,9 +98,18 @@ ada --tokenfile ada-demo.conf --delete /<your-name>/
 ada --tokenfile ada-demo.conf --delete /<your-name>/ --recursive [--force]
 ```
 
-### 12. Events and stage/unstage demo 
+### 12. Events and stage/unstage operations 
 
+In the examples below we are using a token file provided by a Data Manager that has permissions on a specific project allocation. The token file allows full permissions to any subfolfers under the following `tape` directory: `/pnfs/grid.sara.nl/data/users/anatolid/disk/ada-demo/` 
 
+```sh
+# retrieve the ada token
+wget -O ada-demo-tape.conf https://surfdrive.surf.nl/files/index.php/s/2u7zjD3bt7htjxP/download
+# the Data Manager created this config file with `get-macaroon --url https://webdav.grid.surfsara.nl:2880/pnfs/grid.sara.nl/data/users/anatolid/tape/ada-demo-tape/ --duration PT168H --user anatolid --permissions DOWNLOAD,UPLOAD,DELETE,MANAGE,LIST,READ_METADATA,UPDATE_METADATA --output rclone ada-demo-tape`
+# inspect the file and find your data path and privileges
+cat ada-demo-tape.conf 
+view-macaroon ada-demo-tape.conf  # available on any SURFsara UI
+```
 
 
 ```sh
