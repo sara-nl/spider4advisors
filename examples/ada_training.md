@@ -104,28 +104,34 @@ cat ada-demo-tape.conf
 view-macaroon ada-demo-tape.conf  # available on any SURFsara UI
 ```
 
+Let's create some channels to start listening in events:
 
 ```sh
+# Here we create a channel to catch any event that happens in this folder
 ada --tokenfile ada-demo-tape.conf --longlist /pnfs/grid.sara.nl/data/users/anatolid/tape/ada-demo-tape/
-ada --tokenfile ada-demo-tape.conf --channels
+ada --tokenfile ada-demo-tape.conf --channels #available channels
 ada --tokenfile ada-demo-tape.conf --events changes-in-folder /pnfs/grid.sara.nl/data/users/anatolid/tape/ada-demo-tape/ --recursive
 
 #open/close dirs in dcache views
 #read/write a file
-rclone --config=ada-demo-tape.conf sync ./ada-demo-folder ada-demo-tape:/pnfs/grid.sara.nl/data/users/anatolid/tape/ada-demo-tape/natalie/ -P
-#files copied to tape display ATTRIB events
+rclone --config=ada-demo-tape.conf sync ./ada-demo-folder ada-demo-tape:/pnfs/grid.sara.nl/data/users/anatolid/tape/ada-demo-tape/<your-name>/ -P
+#files copied to tape display ATTRIB events. This is not telling match on the staging status of the event, so in the next step we will create a channel specifically to track the locality status
+```
 
-#  When you start it, all files in the scope will be listed, including their locality and QoS
-ada --tokenfile tokenfile_dolphin_no_chroot.conf --report-staged changes-in-qos-tape /users/anatolid/tape --recursive --api https://dolphin12.grid.surfsara.nl:20443/api/v1
+```sh 
+# Here we create a channel to catch staging events only that happens in this folder
+# When you start it, all files in the scope will be listed, including their locality and QoS
+ada --tokenfile ada-demo-tape.conf --report-staged changes-in-qos-tape /pnfs/grid.sara.nl/data/users/anatolid/tape/ada-demo-tape/ --recursive
 
-# Delete dir and recreate it
-ada --tokenfile tokenfile_dolphin_no_chroot.conf --delete /users/anatolid/tape/natalie/ --recursive --api https://dolphin12.grid.surfsara.nl:20443/api/v1
-rclone --config=tokenfile_dolphin_no_chroot.conf sync ./ada-demo-folder tokenfile_dolphin_no_chroot:/users/anatolid/tape/natalie/ -P
+# Delete a dir and recreate it
+./ada --tokenfile ada-demo-tape.conf --delete /pnfs/grid.sara.nl/data/users/anatolid/tape/ada-demo-tape/<your-name>/ --recursive
+rclone --config=ada-demo-tape.conf sync ./ada-demo-folder ada-demo-tape:/pnfs/grid.sara.nl/data/users/anatolid/tape/ada-demo-tape/<your-name>/ -P
 
 # Stage/Unstage
-ada --tokenfile tokenfile_dolphin_no_chroot.conf --longlist /users/anatolid/tape/natalie/flowers.jpg --api https://dolphin12.grid.surfsara.nl:20443/api/v1
-ada --tokenfile tokenfile_dolphin_no_chroot.conf --stage /users/anatolid/tape/natalie/flowers.jpg --api https://dolphin12.grid.surfsara.nl:20443/api/v1
-ada --tokenfile tokenfile_dolphin_no_chroot.conf --unstage /users/anatolid/tape/natalie/flowers.jpg --api https://dolphin12.grid.surfsara.nl:20443/api/v1
+#on a different terminal try the following commnads and inspect the changes in the `report-staged` channel
+./ada --tokenfile ada-demo-tape.conf --longlist /pnfs/grid.sara.nl/data/users/anatolid/tape/ada-demo-tape/<your-name>/flowers.jpg
+./ada --tokenfile ada-demo-tape.conf --stage /pnfs/grid.sara.nl/data/users/anatolid/tape/ada-demo-tape/<your-name>/flowers.jpg
+./ada --tokenfile ada-demo-tape.conf --unstage /pnfs/grid.sara.nl/data/users/anatolid/tape/ada-demo-tape/<your-name>/flowers.jpg
 ```
 
 ### 13. Other Authentication
