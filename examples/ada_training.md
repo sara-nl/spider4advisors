@@ -4,7 +4,7 @@
 
 ### 1. What you need to run the examples
 
-- Access to a terminal (Spider UI or any other machine)
+- Access to a terminal (Spider UI or any other machine) and internet connection
 - ADA wrapper (is available on Spider. On other machines you need to download it from: `git clone https://github.com/sara-nl/SpiderScripts.git`)
 - Rclone (available on any SURFsara UI, On other machines you can get it from: https://rclone.org/install/)
 - Token file to authenticate on a specific dCache project allocation. In the next sections we assume that the Data Manager already created the necessary token files for the project members.
