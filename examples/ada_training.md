@@ -7,7 +7,11 @@
 - Access to a terminal (Spider or any other machine)
 - ADA wrapper (avail on on laptop get it from: `git clone https://github.com/sara-nl/SpiderScripts.git`
 - Rclone (avail on Spider, on laptop get it from: https://rclone.org/install/)
-- Token to authenticate on dCache. Get the config file that contains your token:
+- Token to authenticate on dCache. We get the token in the next section.
+
+## Data Transfers
+
+### 2. Get the config file that contains your token:
 
 ```sh
 # retrieve the ada token
@@ -16,14 +20,6 @@ wget -O ada-demo.conf https://surfdrive.surf.nl/files/index.php/s/R6JMdHQ9f3a7sa
 # inspect the file and find your data path and privileges
 cat ada-demo.conf
 view-macaroon ada-demo.conf  # on Spider
-```
-
-## Data Transfers
-
-### 2. Browse into Ada directory (optional, but makes copy-paste easy)
-
-```sh
-cd SpiderScripts/ada/
 ```
 
 ### 3. Download a dataset locally
@@ -39,34 +35,23 @@ ls ada-demo-folder/
 rclone --config=ada-demo.conf copy ./ada-demo-folder ada-demo:/<your-name> -P
 ```
 
-Nothing new so far ;)
-
 ## ADA in practice
 
 ### 5. Check if the wrapper is available
 
 ```sh
-./ada --help
+ada --help
 ```
 
 ### 6. Test your token
 
 ```sh
-./ada --tokenfile ada-demo.conf --whoami
-#ERROR: no API specified. Use --api <api> or specify a default API in one of the configuration files (/etc/ada.conf /home/<username>/.ada/ada.conf).
+ada --tokenfile ada-demo.conf --whoami
+#on your laptop you may get this ERROR: no API specified. Use --api <api> or specify a default API in one of the configuration files (/etc/ada.conf /home/<username>/.ada/ada.conf).
 ```
 
-This means that we need to specify the api address. In production we will have a default config file in /etc/ada.conf for such settings.
-For now, make your own config file:
-
-
-```sh
-mkdir ~/.ada
-nano ~/.ada/ada.conf
-# Default settings for the ADA script
-   api=https://dcacheview.grid.surfsara.nl:22880/api/v1
-   #api=https://dolphin12.grid.surfsara.nl:20443/api/v1
-```
+This means that we need to specify the api address. On Spider we have a default config file in /etc/ada.conf for such settings.
+On other machines, use this config file in `~/.ada/ada.conf`: https://github.com/sara-nl/SpiderScripts/blob/master/ada/etc/ada.conf
 
 Test again:
 
