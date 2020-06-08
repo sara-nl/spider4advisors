@@ -6,7 +6,7 @@
 
 - Access to a terminal (Spider UI or any other machine) and internet connection
 - ADA wrapper (is available on Spider. On other machines you need to download it from: `git clone https://github.com/sara-nl/SpiderScripts.git`)
-- Rclone (available on any SURFsara UI, On other machines you can get it from: https://rclone.org/install/)
+- Rclone (available on any SURFsara UI. On other machines you can get it from: https://rclone.org/install/)
 - Token file to authenticate on a specific dCache project allocation. In the next sections we assume that the Data Manager already created the necessary token files for the project members.
 
 ## Authentication
@@ -52,15 +52,8 @@ ada --help
 ```sh
 ada --tokenfile ada-demo.conf --whoami
 #on your laptop you may get this ERROR: no API specified. Use --api <api> or specify a default API in one of the configuration files (/etc/ada.conf /home/<username>/.ada/ada.conf).
-```
-
-This means that we need to specify the api address. On Spider we have a default config file in /etc/ada.conf for such settings.
-On other machines, use this config file in `~/.ada/ada.conf`: https://github.com/sara-nl/SpiderScripts/blob/master/ada/etc/ada.conf
-
-Test again:
-
-```sh
-ada --tokenfile ada-demo.conf --whoami
+#this error means that we need to specify the api address. On Spider we have a default config file in /etc/ada.conf for such settings. On other machines, you need to create this config file in your `~/.ada/ada.conf` home folder with the content here: https://github.com/sara-nl/SpiderScripts/blob/master/ada/etc/ada.conf
+#once you create the `~/.ada/ada.conf` file, test again the command: `ada --tokenfile ada-demo.conf --whoami`
 ```
 
 ### 7. List the subdirectories and files
