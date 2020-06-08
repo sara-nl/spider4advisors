@@ -91,7 +91,9 @@ ada --tokenfile ada-demo.conf --delete /<your-name>/
 ada --tokenfile ada-demo.conf --delete /<your-name>/ --recursive [--force]
 ```
 
-### 12. Events and stage/unstage operations 
+## Events and stage/unstage operations 
+
+### 12. Get another config file that contains your token to authenticate to a tape directory
 
 In the examples below we are using a token file provided by a Data Manager that has permissions on a specific project allocation. The token file allows full permissions to any subfolfers under the following `tape` directory: `/pnfs/grid.sara.nl/data/users/anatolid/tape/ada-demo-tape/` 
 
@@ -106,7 +108,7 @@ view-macaroon ada-demo-tape.conf  # available on any SURFsara UI
 
 Let's create some channels to start listening in events.
 
-## 13. Subscribe to any changes in a given directory
+### 13. Subscribe to any changes in a given directory
 
 ```sh
 # Here we create a channel to catch any event that happens in this directory
@@ -120,7 +122,7 @@ rclone --config=ada-demo-tape.conf sync ./ada-demo-folder ada-demo-tape:/pnfs/gr
 #files copied to tape display ATTRIB events. This is not telling match on the staging status of the event, so in the next step we will create a channel specifically to track the locality status
 ```
 
-## 14. Subscribe to all locality and QoS changes in a given directory
+### 14. Subscribe to all locality and QoS changes in a given directory
 
 ```sh 
 # Here we create a channel to catch staging events only that happens in this directory
@@ -138,7 +140,7 @@ rclone --config=ada-demo-tape.conf sync ./ada-demo-folder ada-demo-tape:/pnfs/gr
 ./ada --tokenfile ada-demo-tape.conf --unstage /pnfs/grid.sara.nl/data/users/anatolid/tape/ada-demo-tape/<your-name>/flowers.jpg
 ```
 
-### 15. Other Authentication options
+## 15. Other Authentication options
 
 ```sh
 # Proxy authentication 
