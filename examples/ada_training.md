@@ -106,13 +106,13 @@ view-macaroon ada-demo-tape.conf  # available on any SURFsara UI
 
 
 ```sh
-ada --tokenfile tokenfile_dolphin_no_chroot.conf --list /users/anatolid/ --api https://dolphin12.grid.surfsara.nl:20443/api/v1
-ada --tokenfile tokenfile_dolphin_no_chroot.conf --channels --api https://dolphin12.grid.surfsara.nl:20443/api/v1
-ada --tokenfile tokenfile_dolphin_no_chroot.conf --events changes-in-tape /users/anatolid/tape --recursive --api https://dolphin12.grid.surfsara.nl:20443/api/v1
+ada --tokenfile ada-demo-tape.conf --longlist /pnfs/grid.sara.nl/data/users/anatolid/tape/ada-demo-tape/
+ada --tokenfile ada-demo-tape.conf --channels
+ada --tokenfile ada-demo-tape.conf --events changes-in-folder /pnfs/grid.sara.nl/data/users/anatolid/tape/ada-demo-tape/ --recursive
 
 #open/close dirs in dcache views
 #read/write a file
-rclone --config=tokenfile_dolphin_no_chroot.conf sync ./ada-demo-folder tokenfile_dolphin_no_chroot:/users/anatolid/tape/natalie/ -P
+rclone --config=ada-demo-tape.conf sync ./ada-demo-folder ada-demo-tape:/pnfs/grid.sara.nl/data/users/anatolid/tape/ada-demo-tape/natalie/ -P
 #files copied to tape display ATTRIB events
 
 #  When you start it, all files in the scope will be listed, including their locality and QoS
