@@ -125,7 +125,7 @@ ada --tokenfile tokenfile_dolphin_no_chroot.conf --unstage /users/anatolid/tape/
 
 ```sh
 # Proxy
-ada --api https://dcacheview.grid.surfsara.nl:22882/api/v1 --proxy --longlist /pnfs/grid.sara.nl/data/projects.nl/tropomi/natalie/
+ada --api https://dcacheview.grid.surfsara.nl:22882/api/v1 --proxy --longlist /pnfs/grid.sara.nl/data/lofar/user/sksp/distrib/
 
 # Username/password, via a .netrc file
 ada --netrc --longlist /pnfs/grid.sara.nl/data/users/anatolid/
