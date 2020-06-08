@@ -4,23 +4,27 @@
 
 ### 1. What you need to run the examples
 
-- Access to a terminal (Spider or any other machine)
-- ADA wrapper (avail on on laptop get it from: `git clone https://github.com/sara-nl/SpiderScripts.git`
-- Rclone (avail on Spider, on laptop get it from: https://rclone.org/install/)
-- Token to authenticate on dCache. We get the token in the next section.
+- Access to a terminal (Spider UI or any other machine)
+- ADA wrapper (is available on Spider. On other machines you need to download it from: `git clone https://github.com/sara-nl/SpiderScripts.git`)
+- Rclone (available on any SURFsara UI, On other machines you can get it from: https://rclone.org/install/)
+- Token file to authenticate on a specific dCache project allocation. In the next sections we assume that the Data Manager already created the necessary token files for the project members.
 
-## Data Transfers
+## Authentication
 
 ### 2. Get the config file that contains your token:
+
+In the examples below we are using a token file provided by a Data Manager that has permissions on a specific project allocation. The token file allows full permissions to any subfolfers under the following `disk` directory: `/pnfs/grid.sara.nl/data/users/anatolid/disk/ada-demo/` 
 
 ```sh
 # retrieve the ada token
 wget -O ada-demo.conf https://surfdrive.surf.nl/files/index.php/s/R6JMdHQ9f3a7saq/download
 # the Data Manager created this config file with `get-macaroon --url  https://webdav.grid.surfsara.nl:2880/pnfs/grid.sara.nl/data/users/anatolid/disk/ada-demo/ --duration P7D --chroot --user anatolid --permissions DOWNLOAD,UPLOAD,DELETE,MANAGE,LIST,READ_METADATA,UPDATE_METADATA --output rclone ada-demo`
 # inspect the file and find your data path and privileges
-cat ada-demo.conf
-view-macaroon ada-demo.conf  # on Spider
+cat ada-demo.conf 
+view-macaroon ada-demo.conf  # available on any SURFsara UI
 ```
+
+## Data Transfers
 
 ### 3. Download a dataset locally
 
@@ -94,9 +98,10 @@ ada --tokenfile ada-demo.conf --delete /<your-name>/
 ada --tokenfile ada-demo.conf --delete /<your-name>/ --recursive [--force]
 ```
 
-### 12. Events and stage/unstage demo on Dophin tape pool 
+### 12. Events and stage/unstage demo 
 
-We run this test on our test cluster because the production version lags behind.
+
+
 
 ```sh
 ada --tokenfile tokenfile_dolphin_no_chroot.conf --list /users/anatolid/ --api https://dolphin12.grid.surfsara.nl:20443/api/v1
