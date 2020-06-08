@@ -56,42 +56,42 @@ On other machines, use this config file in `~/.ada/ada.conf`: https://github.com
 Test again:
 
 ```sh
-./ada --tokenfile ada-demo.conf --whoami
+ada --tokenfile ada-demo.conf --whoami
 ```
 
 ### 7. List the subdirectories and files
 
 ```sh
-./ada --tokenfile ada-demo.conf --list /<your-name>
-./ada --tokenfile ada-demo.conf --longlist /<your-name>
+ada --tokenfile ada-demo.conf --list /<your-name>
+ada --tokenfile ada-demo.conf --longlist /<your-name>
 ```
 
 ### 8. Show all details of a file or directory
 
 ```sh
-./ada --tokenfile ada-demo.conf --stat /<your-name>/flowers.jpg
+ada --tokenfile ada-demo.conf --stat /<your-name>/flowers.jpg
 ```
 
 ### 9. Get checksum
 
 ```sh
-./ada --tokenfile ada-demo.conf --checksum /your-name/ --recursive
+ada --tokenfile ada-demo.conf --checksum /your-name/ --recursive
 # check your debug folder while the cmd is running with: watch "ls -l ~/.ada/headers/"
 ```
 
 ### 10. Create a directory
 
 ```sh
-./ada --tokenfile ada-demo.conf --mkdir /<your-name>/<your-dir>`
+ada --tokenfile ada-demo.conf --mkdir /<your-name>/<your-dir>`
 ```
 
 ### 11. Delete a file or directory
 
 ```sh
-./ada --tokenfile ada-demo.conf --delete /<your-name>/flowers.jpg
-./ada --tokenfile ada-demo.conf --delete /<your-name>/
+ada --tokenfile ada-demo.conf --delete /<your-name>/flowers.jpg
+ada --tokenfile ada-demo.conf --delete /<your-name>/
 #WARNING: directory '/<your-name>/' is not empty. If you want to remove it and its contents, you can add the --recursive argument.
-./ada --tokenfile ada-demo.conf --delete /<your-name>/ --recursive [--force]
+ada --tokenfile ada-demo.conf --delete /<your-name>/ --recursive [--force]
 ```
 
 ### 12. Events and stage/unstage demo on Dophin tape pool 
@@ -99,9 +99,9 @@ Test again:
 We run this test on our test cluster because the production version lags behind.
 
 ```sh
-./ada --tokenfile tokenfile_dolphin_no_chroot.conf --list /users/anatolid/ --api https://dolphin12.grid.surfsara.nl:20443/api/v1
-./ada --tokenfile tokenfile_dolphin_no_chroot.conf --channels --api https://dolphin12.grid.surfsara.nl:20443/api/v1
-./ada --tokenfile tokenfile_dolphin_no_chroot.conf --events changes-in-tape /users/anatolid/tape --recursive --api https://dolphin12.grid.surfsara.nl:20443/api/v1
+ada --tokenfile tokenfile_dolphin_no_chroot.conf --list /users/anatolid/ --api https://dolphin12.grid.surfsara.nl:20443/api/v1
+ada --tokenfile tokenfile_dolphin_no_chroot.conf --channels --api https://dolphin12.grid.surfsara.nl:20443/api/v1
+ada --tokenfile tokenfile_dolphin_no_chroot.conf --events changes-in-tape /users/anatolid/tape --recursive --api https://dolphin12.grid.surfsara.nl:20443/api/v1
 
 #open/close dirs in dcache views
 #read/write a file
@@ -109,26 +109,26 @@ rclone --config=tokenfile_dolphin_no_chroot.conf sync ./ada-demo-folder tokenfil
 #files copied to tape display ATTRIB events
 
 #  When you start it, all files in the scope will be listed, including their locality and QoS
-./ada --tokenfile tokenfile_dolphin_no_chroot.conf --report-staged changes-in-qos-tape /users/anatolid/tape --recursive --api https://dolphin12.grid.surfsara.nl:20443/api/v1
+ada --tokenfile tokenfile_dolphin_no_chroot.conf --report-staged changes-in-qos-tape /users/anatolid/tape --recursive --api https://dolphin12.grid.surfsara.nl:20443/api/v1
 
 # Delete dir and recreate it
-./ada --tokenfile tokenfile_dolphin_no_chroot.conf --delete /users/anatolid/tape/natalie/ --recursive --api https://dolphin12.grid.surfsara.nl:20443/api/v1
+ada --tokenfile tokenfile_dolphin_no_chroot.conf --delete /users/anatolid/tape/natalie/ --recursive --api https://dolphin12.grid.surfsara.nl:20443/api/v1
 rclone --config=tokenfile_dolphin_no_chroot.conf sync ./ada-demo-folder tokenfile_dolphin_no_chroot:/users/anatolid/tape/natalie/ -P
 
 # Stage/Unstage
-./ada --tokenfile tokenfile_dolphin_no_chroot.conf --longlist /users/anatolid/tape/natalie/flowers.jpg --api https://dolphin12.grid.surfsara.nl:20443/api/v1
-./ada --tokenfile tokenfile_dolphin_no_chroot.conf --stage /users/anatolid/tape/natalie/flowers.jpg --api https://dolphin12.grid.surfsara.nl:20443/api/v1
-./ada --tokenfile tokenfile_dolphin_no_chroot.conf --unstage /users/anatolid/tape/natalie/flowers.jpg --api https://dolphin12.grid.surfsara.nl:20443/api/v1
+ada --tokenfile tokenfile_dolphin_no_chroot.conf --longlist /users/anatolid/tape/natalie/flowers.jpg --api https://dolphin12.grid.surfsara.nl:20443/api/v1
+ada --tokenfile tokenfile_dolphin_no_chroot.conf --stage /users/anatolid/tape/natalie/flowers.jpg --api https://dolphin12.grid.surfsara.nl:20443/api/v1
+ada --tokenfile tokenfile_dolphin_no_chroot.conf --unstage /users/anatolid/tape/natalie/flowers.jpg --api https://dolphin12.grid.surfsara.nl:20443/api/v1
 ```
 
 ### 13. Other Authentication
 
 ```sh
 # Proxy
-./ada --api https://dcacheview.grid.surfsara.nl:22882/api/v1 --proxy --longlist /pnfs/grid.sara.nl/data/projects.nl/tropomi/natalie/
+ada --api https://dcacheview.grid.surfsara.nl:22882/api/v1 --proxy --longlist /pnfs/grid.sara.nl/data/projects.nl/tropomi/natalie/
 
 # Username/password, via a .netrc file
-./ada --netrc --longlist /pnfs/grid.sara.nl/data/users/anatolid/
+ada --netrc --longlist /pnfs/grid.sara.nl/data/users/anatolid/
 $ cat .netrc
 #machine dcacheview.grid.surfsara.nl
 #login anatolid
