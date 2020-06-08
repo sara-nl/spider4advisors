@@ -13,7 +13,7 @@
 # on Spider
 cp /tmp/ada-demo.conf .
 # on other machine
-wget -O ada-demo.conf https://surfdrive.surf.nl/files/index.php/s/3BbhD2eluhOEKGF/download
+wget -O ada-demo.conf https://surfdrive.surf.nl/files/index.php/s/R6JMdHQ9f3a7saq/download
 # the Data Manager created this config file with `get-macaroon --url  https://webdav.grid.surfsara.nl:2880/pnfs/grid.sara.nl/data/users/anatolid/disk/ada-demo/ --duration P7D --chroot --user anatolid --permissions DOWNLOAD,UPLOAD,DELETE,MANAGE,LIST,READ_METADATA,UPDATE_METADATA --output rclone ada-demo`
 # inspect the file and find your data path and privileges
 cat ada-demo.conf
