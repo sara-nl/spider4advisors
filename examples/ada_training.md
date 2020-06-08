@@ -114,7 +114,7 @@ Let's create some channels to start listening in events.
 # Here we create a channel to catch any event that happens in this directory
 ada --tokenfile ada-demo-tape.conf --longlist /pnfs/grid.sara.nl/data/users/anatolid/tape/ada-demo-tape/
 ada --tokenfile ada-demo-tape.conf --channels #available channels
-ada --tokenfile ada-demo-tape.conf --events changes-in-folder /pnfs/grid.sara.nl/data/users/anatolid/tape/ada-demo-tape/ --recursive
+ada --tokenfile ada-demo-tape.conf --events <your-channel-name> /pnfs/grid.sara.nl/data/users/anatolid/tape/ada-demo-tape/ --recursive
 
 #open/close dirs in dcache views
 #read/write a file
@@ -127,7 +127,7 @@ rclone --config=ada-demo-tape.conf sync ./ada-demo-folder ada-demo-tape:/pnfs/gr
 ```sh 
 # Here we create a channel to catch staging events only that happens in this directory
 # When you start it, all files in the scope will be listed, including their locality and QoS
-ada --tokenfile ada-demo-tape.conf --report-staged changes-in-qos-tape /pnfs/grid.sara.nl/data/users/anatolid/tape/ada-demo-tape/ --recursive
+ada --tokenfile ada-demo-tape.conf --report-staged <your-stage-channel-name> /pnfs/grid.sara.nl/data/users/anatolid/tape/ada-demo-tape/ --recursive
 
 # Delete a dir and recreate it
 ./ada --tokenfile ada-demo-tape.conf --delete /pnfs/grid.sara.nl/data/users/anatolid/tape/ada-demo-tape/<your-name>/ --recursive
