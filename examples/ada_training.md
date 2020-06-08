@@ -93,7 +93,7 @@ ada --tokenfile ada-demo.conf --delete /<your-name>/ --recursive [--force]
 
 ### 12. Events and stage/unstage operations 
 
-In the examples below we are using a token file provided by a Data Manager that has permissions on a specific project allocation. The token file allows full permissions to any subfolfers under the following `tape` directory: `/pnfs/grid.sara.nl/data/users/anatolid/disk/ada-demo/` 
+In the examples below we are using a token file provided by a Data Manager that has permissions on a specific project allocation. The token file allows full permissions to any subfolfers under the following `tape` directory: `/pnfs/grid.sara.nl/data/users/anatolid/tape/ada-demo-tape/` 
 
 ```sh
 # retrieve the ada token
@@ -104,10 +104,12 @@ cat ada-demo-tape.conf
 view-macaroon ada-demo-tape.conf  # available on any SURFsara UI
 ```
 
-Let's create some channels to start listening in events:
+Let's create some channels to start listening in events.
+
+## 13. Subscribe to any changes in a given directory
 
 ```sh
-# Here we create a channel to catch any event that happens in this folder
+# Here we create a channel to catch any event that happens in this directory
 ada --tokenfile ada-demo-tape.conf --longlist /pnfs/grid.sara.nl/data/users/anatolid/tape/ada-demo-tape/
 ada --tokenfile ada-demo-tape.conf --channels #available channels
 ada --tokenfile ada-demo-tape.conf --events changes-in-folder /pnfs/grid.sara.nl/data/users/anatolid/tape/ada-demo-tape/ --recursive
@@ -118,8 +120,10 @@ rclone --config=ada-demo-tape.conf sync ./ada-demo-folder ada-demo-tape:/pnfs/gr
 #files copied to tape display ATTRIB events. This is not telling match on the staging status of the event, so in the next step we will create a channel specifically to track the locality status
 ```
 
+## 14. Subscribe to all locality and QoS changes in a given directory
+
 ```sh 
-# Here we create a channel to catch staging events only that happens in this folder
+# Here we create a channel to catch staging events only that happens in this directory
 # When you start it, all files in the scope will be listed, including their locality and QoS
 ada --tokenfile ada-demo-tape.conf --report-staged changes-in-qos-tape /pnfs/grid.sara.nl/data/users/anatolid/tape/ada-demo-tape/ --recursive
 
@@ -134,13 +138,13 @@ rclone --config=ada-demo-tape.conf sync ./ada-demo-folder ada-demo-tape:/pnfs/gr
 ./ada --tokenfile ada-demo-tape.conf --unstage /pnfs/grid.sara.nl/data/users/anatolid/tape/ada-demo-tape/<your-name>/flowers.jpg
 ```
 
-### 13. Other Authentication
+### 15. Other Authentication options
 
 ```sh
-# Proxy
+# Proxy authentication 
 ada --api https://dcacheview.grid.surfsara.nl:22882/api/v1 --proxy --longlist /pnfs/grid.sara.nl/data/lofar/user/sksp/distrib/
 
-# Username/password, via a .netrc file
+# Username/password authentication, via a .netrc file
 ada --netrc --longlist /pnfs/grid.sara.nl/data/users/anatolid/
 $ cat .netrc
 #machine dcacheview.grid.surfsara.nl
