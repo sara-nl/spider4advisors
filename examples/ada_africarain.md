@@ -4,6 +4,20 @@
 
 dCache is a powerful data storage platform used for many data intensive projects, that can be interfaced with in a number of ways. Our ADA (Advanced dCache API) interface is based on the dCache API and the webdav protocol to access and process your data on dCache from any platform and with various authentication methods.
 
+## ADA benefits
+
+- Performance 
+- Scalability
+- Capacity 
+- Fault tolerance 
+- Reliability
+- Security (also on shared file-systems)
+- Simplicity, intuitiveness and quick startup time 
+- Project-centric roles
+- Access to industry standard interface (API)
+- Portability (and uniform solution for any project member role)
+- Event-driven automation
+
 ## Generic workflow on Spider
 
 ![Spider_ADA_example_simple](https://user-images.githubusercontent.com/12894031/86337875-f5c62d80-bc51-11ea-87cd-142881ea3289.png)
