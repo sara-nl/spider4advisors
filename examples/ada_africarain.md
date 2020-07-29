@@ -4,15 +4,9 @@
 
 dCache is a powerful data storage platform used for many data intensive projects, that can be interfaced with in a number of ways. Our ADA (Advanced dCache API) interface is based on the dCache API and the webdav protocol to access and process your data on dCache from any platform and with various authentication methods.
 
-## Use cases
-
-### Generic workflow on Spider
+## Generic workflow on Spider
 
 ![Spider_ADA_example_simple](https://user-images.githubusercontent.com/12894031/86337875-f5c62d80-bc51-11ea-87cd-142881ea3289.png)
-
-### Automated workflow on Spider
-
-![Spider_ADA_example_automated](https://user-images.githubusercontent.com/12894031/86337814-e2b35d80-bc51-11ea-865d-7da677bf7987.png)
 
 ## Authentication
 
@@ -138,6 +132,42 @@ Example, remove the created folders:
 
 `ada --tokenfile africarain.conf --delete /output-data --recursive --force`
 
+# Extras
+
+## Help and Debug
+
+`ada --help`
+
+`ada [command options] --debug`
+
+Example,
+
+`ada --tokenfile africarain.conf --longlist /ada-demo-remote/ --debug`
+
+## Using ADA anywhere
+
+The same config file can be used by any platform and operate on the data without changing your Spider workflow.
+
+### Prerequisites
+
+- Install ADA. It is available on Spider. On other machines you need to download it from: `git clone https://github.com/sara-nl/SpiderScripts.git`
+- Install Rclone. It is available on any SURFsara UI. On other machines you can get it from: https://rclone.org/install/
+- Install `jq`. It is available on Spider. On other machines you can get it from: https://stedolan.github.io/jq/download/
+- Token file to authenticate on a specific dCache project allocation.
+
+
+### Test ADA on your laptop
+
+```sh
+ada --tokenfile ada-demo.conf --whoami
+# The first time you run it on your laptop you will get this ERROR: no API specified. Use --api <api> or specify a default API in one of the configuration files (/etc/ada.conf /home/<username>/.ada/ada.conf).
+# This error means that we need to specify the api address. On Spider we have a default config file in /etc/ada.conf for such settings. On other machines, you need to create this config file in your `~/.ada/ada.conf` home folder with the content here: https://github.com/sara-nl/SpiderScripts/blob/master/ada/etc/ada.conf
+#once you create the `~/.ada/ada.conf` file, test again the command: `ada --tokenfile ada-demo.conf --whoami`
+```
+
+## Advanced automated workflow on Spider
+
+![Spider_ADA_example_automated](https://user-images.githubusercontent.com/12894031/86337814-e2b35d80-bc51-11ea-865d-7da677bf7987.png)
 
 
 
