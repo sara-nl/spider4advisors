@@ -1,41 +1,68 @@
 ## Interactive analysis with Jupyter Notebooks
 
-Let's start our first Spider notebook! To make it easy, we have created a tool to allow users 
-launch Jupyter Notebooks. This is called `startnotebook` and can be invoked from the Spider User 
-Interface (UI).
+Let's start our first Spider notebook! Before getting started, we have to set up the environment
+to be able to run Jupyter notebooks on the Spider User Interface (UI).
 
-* Login to Spider and inspect the `startnotebook`  tool:
+### Pre-requisites
+
+Connect to Spider and install the latest version of mini-conda by fetching and running 
+(this script)[https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh]
 
 ```sh
-$ startnotebook -h
+wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+chmod +x Miniconda3-latest-Linux-x86_64.sh
+./Miniconda3-latest-Linux-x86_64.sh
 ```
 
-As you see `startnotebook` accepts the following parameters:
+Now create a new conda environment for the notebooks and activate it by doing
 
-| option | description |
-| ------ | ----------- |
-|`--flavor FLAVOR` | The FLAVOR determines the amount of resources assigned to the Jupyter notebook. Currently the  The available flavours are `small` (1core/8GBmem) and `medium` (4cores/32GBmem). If not specified, the deafult is `small`. |
-|`--check` | This is a dry run to inspect the resources to be used by the notebook. It doesn't launch a notebook. |
-|` --kernel-timeout KERNEL_TIMEOUT` | Idle time (s) before the kernel is killed. This counts when a kernel is idle. If not specified, the deafult is 10 min. |
-|`--notebook-timeout NOTEBOOK_TIMEOUT`| Time (s) before the notebook is killed. This counts when no kernels are running. If not specified, the deafult is 10 min. |
-|`--name JOBNAME`| The JOBNAME is the name you want to give to your Notebook folder. If not specified, a random name is created as 'notebook-[random string]' |
-|` --verbose`| Verbose mode to display output from background processes that are triggered. | 
+```sh
+conda create -n notebook
+conda activate notebook
+```
+
+If you have forgotten your environment name from a previous installation, type
+
+```sh
+conda info --envs
+```
+
+to get a list of environments.
+
+Now you have a specific environment running in which you can install packages
+to run. To run this example, we need to install `jupyterlab` and `matplotlib`.
+To do this, run:
+
+```sh
+conda install -c conda-forge jupyterlab
+conda install matplotlib
+```
+
+Before you can start the notebook server, a tunnel has to be created to the
+Spider cluster, to be able to forward the notebook contents to your browser.
+This is done by opening a new terminal and executing:
+
+```sh
+ssh -N -L 8899:UI_NAME:8899 USERNAME@spider.surfsara.nl
+```
+
+where `UI_NAME` is the name of the interactive node, `ui-01` or `ui-02`. The 
+port is the where the kernel is forwarded through to your browser, and for
+`USERNAME` use your own. 
+
+Now start the notebook server on Spider by running in your terminal
+
+```sh
+jupyter notebook --no-browser --ip=0.0.0.0 --port=8899
+```
+
+and open in your browser the address given, or if the formatting is not 
+familiar, go to:
+`http://localhost:8899/?token=abc123`
+where the token value is given in your terminal.
+
 
 * Start a notebook with name 'my-awesome-research`
-
-```sh
-$ startnotebook --name my-awesome-notebook
-# Starting Notebook.
-# Determining Notebook url......
-# Notebook sucessfully launched!
-# Access your notebook using the following parameters:
-#
-#	url : http://145.38.255.23:8827
-#	pass: OdL@@F>yQ:nQ
-```
-
-> What happened? Behind the scenes, `startnotebook` submits a job to the SLURM cluster. The job executes a Singularity container, containing the Jupyter notebook. Once the job starts running the tool
-retrieves the host and port where the Jupyter notebook is running and provides you with the corresponding URL, and credentials to allow you access the notebook from your laptop.
 
 * Open a browser in your laptop and copy the provided URL. Hit 'Enter' and paste the provided password. Once successfully logged in, start a new 'Python 3' notebook.
 
@@ -51,11 +78,10 @@ ls -la my-awesome-notebook/
 # -rw-r--r-- 1 Untitled.ipynb
 ```
 
-> Where is your Notebook running? Can you guess what is the temporary and persistent storage used by your notebooks?
-
 * Let's assume that one of your colleagues has prepared a Notebook for you to reproduce his results. Download `my-research-notebook` to your home for further use:
 
 ```
+mkdir $HOME/my-awesome-notebook
 cd $HOME/my-awesome-notebook
 wget https://raw.githubusercontent.com/sara-nl/spider4advisors/master/examples/my-research-notebook.ipynb
 ls -l
