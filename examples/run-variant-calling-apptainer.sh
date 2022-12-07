@@ -16,7 +16,7 @@ cd $ecolipath/results
 
 genome=$ecolipath/data/ref_genome/ecoli_rel606.fasta
 
-singularity exec $ecolipath/elixir-singularity.sif bwa index $genome
+apptainer exec $ecolipath/elixir-singularity.sif bwa index $genome
 
 mkdir -p sam bam bcf vcf
 
@@ -37,21 +37,21 @@ for fq1 in $ecolipath/data/trimmed_fastq_small/*_1.trim.sub.fastq
     final_variants=$ecolipath/results/vcf/${base}_final_variants.vcf 
     
     #Align reads to reference genome
-    singularity exec $ecolipath/elixir-singularity.sif bwa mem $genome $fq1 $fq2 > $sam
+    apptainer exec $ecolipath/elixir-singularity.sif bwa mem $genome $fq1 $fq2 > $sam
     
     #Convert from sam to bam format
-    singularity exec $ecolipath/elixir-singularity.sif samtools view -S -b $sam > $bam
+    apptainer exec $ecolipath/elixir-singularity.sif samtools view -S -b $sam > $bam
 
     #Sort the bam files    
-    singularity exec $ecolipath/elixir-singularity.sif samtools sort -o $sorted_bam $bam 
+    apptainer exec $ecolipath/elixir-singularity.sif samtools sort -o $sorted_bam $bam 
     
     #Calculate the read coverage of positions in the genome
-    singularity exec $ecolipath/elixir-singularity.sif bcftools mpileup -O b -o $raw_bcf -f $genome $sorted_bam
+    apptainer exec $ecolipath/elixir-singularity.sif bcftools mpileup -O b -o $raw_bcf -f $genome $sorted_bam
     
     #Detect the single nucleotide polymorphisms (SNPs)
-    singularity exec $ecolipath/elixir-singularity.sif bcftools call --ploidy 1 -m -v -o $variants $raw_bcf 
+    apptainer exec $ecolipath/elixir-singularity.sif bcftools call --ploidy 1 -m -v -o $variants $raw_bcf 
     
     #Filter the SNPs for the final output in VCF format
-    singularity exec $ecolipath/elixir-singularity.sif vcfutils.pl varFilter $variants > $final_variants
+    apptainer exec $ecolipath/elixir-singularity.sif vcfutils.pl varFilter $variants > $final_variants
    
 done

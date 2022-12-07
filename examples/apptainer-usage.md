@@ -10,13 +10,13 @@ experiment, one from 5,000 generations, one from 15,000 generations, and one fro
 population changed. Generally, the quality of raw data is assessed and data is 'trimmed'. In this example, you will download 
 a small set of data that has already been trimmed and will run the variant calling workflow.
 
-Let us first inspect what version of singularity is available on the system:
+Let us first inspect what version of apptainer (formerly singularity) is available on the system:
 
 ```sh
-singularity version
+apptainer version
 ```
 
-In this example we will directly provide you a read-only singularity image and run the workflow. Please login to Spider again and check if the required software is available to you
+In this example we will directly provide you a read-only apptainer image and run the workflow. Please login to Spider again and check if the required software is available to you
 
 ```
 fastqc -h
@@ -29,16 +29,16 @@ This will throw errors which means that the software is not available to you. Le
 cd $HOME
 mkdir ecoli-analysis-container
 cd ecoli-analysis-container
-wget https://raw.githubusercontent.com/sara-nl/spider4advisors/master/examples/job-submit-variant-calling-singularity.sh
+wget https://raw.githubusercontent.com/sara-nl/spider4advisors/master/examples/job-submit-variant-calling-apptainer.sh
 
-wget https://raw.githubusercontent.com/sara-nl/spider4advisors/master/examples/run-variant-calling-singularity.sh
+wget https://raw.githubusercontent.com/sara-nl/spider4advisors/master/examples/run-variant-calling-apptainer.sh
 ```
 
-Let us see how the scripts set the software environment. The job-submit-variant-calling-singularity.sh script does not set
+Let us see how the scripts set the software environment. The job-submit-variant-calling-apptainer.sh script does not set
 the software environemnt here. So, let us inspect the script that runs the analysis
 
 ```sh
-cat run-variant-calling-singularity.sh
+cat run-variant-calling-apptainer.sh
 
 #!/bin/bash
 set -x
@@ -58,7 +58,7 @@ cd $ecolipath/results
 
 genome=$ecolipath/data/ref_genome/ecoli_rel606.fasta
 
-singularity exec $ecolipath/elixir-singularity.sif bwa index $genome
+apptainer exec $ecolipath/elixir-singularity.sif bwa index $genome
 
 mkdir -p sam bam bcf vcf
 
@@ -79,22 +79,22 @@ for fq1 in $ecolipath/data/trimmed_fastq_small/*_1.trim.sub.fastq
     final_variants=$ecolipath/results/vcf/${base}_final_variants.vcf 
     
     #Align reads to reference genome
-    singularity exec $ecolipath/elixir-singularity.sif bwa mem $genome $fq1 $fq2 > $sam
+    apptainer exec $ecolipath/elixir-singularity.sif bwa mem $genome $fq1 $fq2 > $sam
     
     #Convert from sam to bam format
-    singularity exec $ecolipath/elixir-singularity.sif samtools view -S -b $sam > $bam
+    apptainer exec $ecolipath/elixir-singularity.sif samtools view -S -b $sam > $bam
 
     #Sort the bam files    
-    singularity exec $ecolipath/elixir-singularity.sif samtools sort -o $sorted_bam $bam 
+    apptainer exec $ecolipath/elixir-singularity.sif samtools sort -o $sorted_bam $bam 
     
     #Calculate the read coverage of positions in the genome
-    singularity exec $ecolipath/elixir-singularity.sif bcftools mpileup -O b -o $raw_bcf -f $genome $sorted_bam
+    apptainer exec $ecolipath/elixir-singularity.sif bcftools mpileup -O b -o $raw_bcf -f $genome $sorted_bam
     
     #Detect the single nucleotide polymorphisms (SNPs)
-    singularity exec $ecolipath/elixir-singularity.sif bcftools call --ploidy 1 -m -v -o $variants $raw_bcf 
+    apptainer exec $ecolipath/elixir-singularity.sif bcftools call --ploidy 1 -m -v -o $variants $raw_bcf 
     
     #Filter the SNPs for the final output in VCF format
-    singularity exec $ecolipath/elixir-singularity.sif vcfutils.pl varFilter $variants > $final_variants
+    apptainer exec $ecolipath/elixir-singularity.sif vcfutils.pl varFilter $variants > $final_variants
    
 done
  ```
@@ -102,7 +102,7 @@ done
 > **_Food for brain:_**
 >
 > * How is the software environment set up in the above script?
-> * Does it matter where the singularity image is located?
+> * Does it matter where the apptainer image is located?
 > * Can you install some new software in this container? 
 
 ```
@@ -111,7 +111,7 @@ done
 cp /project/surfadvisors/Software/elixir-singularity.sif  $HOME/ecoli-analysis-container
 
 #Make sure the path to store the results in the variant calling script does not already have the results when you run the job
-sbatch --job-name=var-call-singularity -J 'var-call-singularity' --output=%x-%j.out job-submit-variant-calling-singularity.sh
+sbatch --job-name=var-call-apptainer -J 'var-call-apptainer' --output=%x-%j.out job-submit-variant-calling-apptainer.sh
 ```
 
 Did the analysis run successfully? To test the status of your job you can run the command

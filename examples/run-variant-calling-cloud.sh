@@ -2,7 +2,7 @@
 set -x
 set -e
 ecolipath=$HOME/ecoli-analysis-cloud
-singularitypath=/cvmfs/softdrive.nl/anatolid/spidercourse/
+apptainerpath=/cvmfs/softdrive.nl/anatolid/spidercourse/
 
 cd $ecolipath
 mkdir -p data/ref_genome
@@ -18,7 +18,7 @@ cd $ecolipath/results
 
 genome=$ecolipath/data/ref_genome/ecoli_rel606.fasta
 
-singularity exec $singularitypath/elixir-singularity.sif bwa index $genome
+apptainer exec $apptainerpath/elixir-singularity.sif bwa index $genome
 
 mkdir -p sam bam bcf vcf
 
@@ -39,21 +39,21 @@ for fq1 in $ecolipath/data/trimmed_fastq_small/*_1.trim.sub.fastq
     final_variants=$ecolipath/results/vcf/${base}_final_variants.vcf
 
     #Align reads to reference genome
-    singularity exec $singularitypath/elixir-singularity.sif bwa mem $genome $fq1 $fq2 > $sam
+    apptainer exec $apptainerpath/elixir-singularity.sif bwa mem $genome $fq1 $fq2 > $sam
 
     #Convert from sam to bam format
-    singularity exec $singularitypath/elixir-singularity.sif samtools view -S -b $sam > $bam
+    apptainer exec $apptainerpath/elixir-singularity.sif samtools view -S -b $sam > $bam
 
     #Sort the bam files
-    singularity exec $singularitypath/elixir-singularity.sif samtools sort -o $sorted_bam $bam
+    apptainer exec $apptainerpath/elixir-singularity.sif samtools sort -o $sorted_bam $bam
 
     #Calculate the read coverage of positions in the genome
-    singularity exec $singularitypath/elixir-singularity.sif bcftools mpileup -O b -o $raw_bcf -f $genome $sorted_bam
+    apptainer exec $apptainerpath/elixir-singularity.sif bcftools mpileup -O b -o $raw_bcf -f $genome $sorted_bam
 
     #Detect the single nucleotide polymorphisms (SNPs)
-    singularity exec $singularitypath/elixir-singularity.sif bcftools call --ploidy 1 -m -v -o $variants $raw_bcf
+    apptainer exec $apptainerpath/elixir-singularity.sif bcftools call --ploidy 1 -m -v -o $variants $raw_bcf
 
     #Filter the SNPs for the final output in VCF format
-    singularity exec $singularitypath/elixir-singularity.sif vcfutils.pl varFilter $variants > $final_variants
+    apptainer exec $apptainerpath/elixir-singularity.sif vcfutils.pl varFilter $variants > $final_variants
 
 done

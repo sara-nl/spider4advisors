@@ -95,7 +95,7 @@ Your analysis on Spider can be run with software that was installed either by th
 - employ the container into your workflows
 - run the analysis by using the software from a Singularity container
 
-Interested? Try out the example [here](examples/singularity-usage.md).
+Interested? Try out the example [here](examples/apptainer-usage.md).
 
 ### Integration with scalable external storage
 
