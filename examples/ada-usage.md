@@ -1,7 +1,7 @@
 ### The Advanced dCache API (ADA)
 
 
-We will be using a genomics pipeline example to demonstrate the integration capabilities of Spider with highly scalable external storage systems.
+We will reuse the genomics pipeline from the dCache example to demonstrate the capabilities of ADA on Spider.
 
 The data we are going to use is part of a long-term evolution [experiment](https://en.wikipedia.org/wiki/E._coli_long-term_evolution_experiment)
 led by Richard Lenski to assess adaptation in E. coli. A population was propagated for more than 50,000
@@ -21,11 +21,26 @@ wget https://raw.githubusercontent.com/sara-nl/spider4advisors/master/examples/j
 wget https://raw.githubusercontent.com/sara-nl/spider4advisors/master/examples/run-variant-calling-ada.sh
 ```
 
-Before we run the script we also need to fetch a macaroon that will allow us to approach dCache through the ADA interface. 
+Before we run the script we also need a macaroon that will allow us to approach dCache through the ADA interface. 
+Luckily for us, the macaroon is already available at `/project/surfadvisors/Share/maca_spider4advisors_ada.conf` and can be read by
+SURF advisors following this course. This macaroon can only read, (un)stage and download files, to ensure the data is not accidentally
+deleted.
 
-$ ada --tokenfile /project/surfadvisors/Share/maca_spider4advisors_ada.conf --longlist ./trimmed_fastq_small.tar
+First, let's see if we can list the file that we want to download in the script:
 
-cp ... $HOME/macaroon_spider4advisors_ada.conf
+```sh
+ada --tokenfile /project/surfadvisors/Share/maca_spider4advisors_ada.conf --longlist ./trimmed_fastq_small.tar
+
+./trimmed_fastq_small.tar  347176960  2022-12-08 14:15 UTC  tape  NEARLINE
+```
+
+With `--longlist` we see more information than with the default `--list`. What we see is that this file is currently 
+stored on tape and is in the _nearline_ status. This means that the file is directly available for reading, just that a disk
+needs to be spinned up, which will only take a few seconds. 
+
+The script we are about to run actually _stages_ the file for us, meaning that it is taken to the _online_ state, which means it is
+immediately available for reading. After the file is downloaded to local storage it is also _unstaged_, putting it back in the nearline (disk)
+or offline (tape) state. This usually happens after a while, but in this example the script explicitly does it to show the user it can be done by hand.
 
 Let us inspect the script that submits the job
 
@@ -116,19 +131,8 @@ cp -r $TMPDIR/var-calling/results $HOME/ecoli-analysis-ada/
 
 > **_Food for brain:_**
 >
-> * The https link from where you download the data looks rather funny. Is this a normal URL? If not, do you know what it is?
-> * Is this data freely available to anyone? Try copying the link in a browser on your laptop and see what happens.
-> * Dosen't look like it requires any authentication. What if your data cannot be publicly made available?
-
-The E.coli probably do not mind their data being public but we are all very aware of data privacy - and this is not the case
-only for genomic data
-but research data in most domains. So how was the authentication performed for your input data?
-
-The data was shared with you with Macaroons - these are bearer tokens that you can use to authorize someone to
-download/upload/delete data stored on dCache. These macaroons can be used with clients that can support bearer tokens
-(e.g., curl, Rclone). For this exercise a macaroon was created with certain restrictions (called as caveats) on the
-lifetime of the macaroon, the IP address you can use the macaroon from, the file that you can access, etc. Depending
-on who you want to share the data with, for how long and from which systems, these caveats can be adjusted. 
+> * The ada commands explicitly show the file that is downloaded. Can you find other files accessible with this macaroon?
+> * Is this data freely available to anyone? Try running the command outside of the SURF network (not on Spider) and see what happens.
 
 You can check the status of the job and inspect the output log file (even if the job is not completed).
 
@@ -141,9 +145,3 @@ grep -v "#" $HOME/ecoli-analysis-ada/results/vcf/SRR2589044_final_variants.vcf |
 
 #The answer should be 10 (the number if expected variants detected in this population)
 ```
-
-You can download the input data on the fly (if you have good network connectivity to the storage system from Spider)
-within each job without the hassle of downloading all the data to Spider. This is particularly handy if you want to
-automate large scale data analysis. In this example we saved the results locally on Spider, but you can also push the
-output to dCache or another external storage system. dCache also supports username/password authentication and certificate
-based proxy authentication.   

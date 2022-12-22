@@ -106,7 +106,7 @@ cp -r $TMPDIR/var-calling/results $HOME/ecoli-analysis-dcache/
 >
 > * The https link from where you download the data looks rather funny. Is this a normal URL? If not, do you know what it is?
 > * Is this data freely available to anyone? Try copying the link in a browser on your laptop and see what happens.
-> * Dosen't look like it requires any authentication. What if your data cannot be publicly made available?
+> * Doesn't look like it requires any authentication. What if your data cannot be publicly made available?
 
 The E.coli probably do not mind their data being public but we are all very aware of data privacy - and this is not the case
 only for genomic data
