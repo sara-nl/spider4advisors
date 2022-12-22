@@ -123,9 +123,8 @@ Interested? Try out the example [here](examples/cloud-usage.md).
 
 ### The Advanced dCache API (ADA)
 
-dCache has multiple interfaces to approach the data stored on the disks and tapes in the grid storage system. To make it easier for users to access their data SURF has developed the [Advanced dCache API](https://spiderdocs.readthedocs.io/en/latest/Pages/storage/ada-interface.html) (ADA). ADA combines different way to approach your data into a single program. In this example, we will:
+dCache has multiple interfaces to approach the data stored on the disks and tapes in the grid storage system. To make it easier for users to access their data SURF has developed the [Advanced dCache API](https://spiderdocs.readthedocs.io/en/latest/Pages/storage/ada-interface.html) (ADA). ADA combines different way to approach your data into a single program. The following example only contains a small set of the commands of ADA. To see the full of ADA scope, read the [ADA documentation](https://spiderdocs.readthedocs.io/en/latest/Pages/storage/ada-interface.html). In this example, we will  use an already existing macaroon to:
 
-- use a pre-made macaroon to
 - list files on dCache 
 - stage a file we want to download
 - copy the file to local storage
