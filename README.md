@@ -121,6 +121,18 @@ Recompiling your software every time you switch processing platforms or moving d
 
 Interested? Try out the example [here](examples/cloud-usage.md).
 
+### The Advanced dCache API (ADA)
+
+dCache has multiple interfaces to approach the data stored on the disks and tapes in the grid storage system. To make it easier for users to access their data SURF has developed the [Advanced dCache API](https://spiderdocs.readthedocs.io/en/latest/Pages/storage/ada-interface.html) (ADA). ADA combines different way to approach your data into a single program. In this example, we will:
+
+- use a pre-made macaroon to
+- list files on dCache 
+- stage a file we want to download
+- copy the file to local storage
+- unstage the file
+
+Interested? Try out the example [here](examples/ada-usage.md).
+
 ### Performance of staging and scratch area
 
 For a high-throughput platform such as Spider important aspects are; (i) the network bandwidth for the transport of data sets, (ii) the I/O operations per second that the storage device can handle, but also (iii) the speed with which we write data and read data from storage. On Spider you have two options for storing files; (a) globally mounted [Ceph](https://ceph.io/) disk storage that is accessed through the shared [CephFS](https://ceph.io/ceph-storage/file-system/) filesystem and (b) local disk storage (often referred to as local scratch space) on the worker node (WN) that is accessed within your jobs only. Your files in /home/[username] and /project/[projectname] are provisioned on Ceph, while the local scratch space for a batch job is provisioned via the number of cores `-c` as 80 Gbyte per core. In this example we will investigate the performance of staging (or CephFS) and scratch area. This is an advanced example if you are interested in performance evaluation as we will:
