@@ -11,6 +11,7 @@
   * [Software portability with containers](#software-portability-with-containers)
   * [Integration with scalable external storage](#integration-with-scalable-external-storage)
   * [Interoperability with existing platforms](#interoperability-with-existing-platforms)
+  * [The Advanced dCache API](#the-advanced-dcache-api-ada)
   * [Performance of staging and scratch area](#performance-of-staging-and-scratch-area)
   * [Bring your own example](#bring-your-own-example)
 * [4. Feedback](#4-feedback)
