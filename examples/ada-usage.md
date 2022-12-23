@@ -1,7 +1,7 @@
 ### The Advanced dCache API (ADA)
 
 
-We will reuse the genomics pipeline from the [dCache example](./macaroons-usage) to demonstrate the capabilities of ADA on Spider.
+We will reuse the genomics pipeline from the [dCache example](./macaroons-usage.md) to demonstrate the capabilities of ADA on Spider.
 
 The data we are going to use is part of a long-term evolution [experiment](https://en.wikipedia.org/wiki/E._coli_long-term_evolution_experiment)
 led by Richard Lenski to assess adaptation in E. coli. A population was propagated for more than 50,000
