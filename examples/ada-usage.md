@@ -1,7 +1,7 @@
 ### The Advanced dCache API (ADA)
 
 
-We will reuse the genomics pipeline from the dCache example to demonstrate the capabilities of ADA on Spider.
+We will reuse the genomics pipeline from the [dCache example](#integration-with-scalable-external-storage) to demonstrate the capabilities of ADA on Spider.
 
 The data we are going to use is part of a long-term evolution [experiment](https://en.wikipedia.org/wiki/E._coli_long-term_evolution_experiment)
 led by Richard Lenski to assess adaptation in E. coli. A population was propagated for more than 50,000
@@ -24,7 +24,7 @@ wget https://raw.githubusercontent.com/sara-nl/spider4advisors/master/examples/r
 Before we run the script we also need a macaroon that will allow us to approach dCache through the ADA interface. 
 Luckily for us, the macaroon is already available at `/project/surfadvisors/Share/maca_spider4advisors_ada.conf` and can be read by
 SURF advisors following this course. This macaroon can only read, (un)stage and download files, to ensure the data is not accidentally
-deleted.
+deleted, among other security features.
 
 First, let's see if we can list the file that we want to download in the script:
 
@@ -35,14 +35,14 @@ ada --tokenfile /project/surfadvisors/Share/maca_spider4advisors_ada.conf --long
 ```
 
 With `--longlist` we see more information than with the default `--list`. What we see is that this file is currently 
-stored on tape and is in the _nearline_ status. This means that the file is directly available for reading, just that a disk
+stored and is in the _nearline_ status. This means that the file is directly available for reading, just that a disk
 needs to be spinned up, which will only take a few seconds. 
 
 The script we are about to run actually _stages_ the file for us, meaning that it is taken to the _online_ state, which means it is
 immediately available for reading. After the file is downloaded to local storage it is also _unstaged_, putting it back in the nearline (disk)
-or offline (tape) state. This usually happens after a while, but in this example the script explicitly does it to show the user it can be done by hand.
+or offline (tape) state. Unstaging happens automatically after some time, but in this example the script explicitly does it to show the user it can be done by hand.
 
-Let us inspect the script that submits the job
+Let us inspect the script that submits the job:
 
 ```sh
 cat job-submit-variant-calling-ada.sh
@@ -69,7 +69,8 @@ directory and run it. Let us first run the job and while it runs we can inspect 
 sbatch --job-name=var-call-ada -J 'var-call-ada' --output=%x-%j.out job-submit-variant-calling-ada.sh
 ```
 
-Now lets inspect the variant calling script
+Now lets inspect the variant calling script:
+
 ```sh
 cat run-variant-calling-ada.sh
 
@@ -129,10 +130,12 @@ for fq1 in $ecolipath/data/trimmed_fastq_small/*_1.trim.sub.fastq
 cp -r $TMPDIR/var-calling/results $HOME/ecoli-analysis-ada/
 ```
 
+As you can see `ada` takes care of the file staging and unstaging, while `rclone` is used to move the file to local storage.
+
 > **_Food for brain:_**
 >
 > * The ada commands explicitly show the file that is downloaded. Can you find other files accessible with this macaroon?
-> * Is this data freely available to anyone? Try running the command outside of the SURF network (not on Spider) and see what happens.
+> * Is this data freely available to anyone? Try running the ada list command outside of the SURF network (not on Spider) and see what happens.
 
 You can check the status of the job and inspect the output log file (even if the job is not completed).
 
