@@ -1,7 +1,6 @@
 #!/bin/bash
 set -e
 set -x
-ecolipath=$PWD
 
 mkdir -p data/ref_genome
 cp /project/surfadvisors/Data/ecoli-analysis/data/ref_genome/ecoli_rel606.fasta data/ref_genome/
