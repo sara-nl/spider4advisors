@@ -51,4 +51,4 @@ for fq1 in $ecolipath/data/trimmed_fastq_small/*_1.trim.sub.fastq
    
     done
 
-cp -r $TMPDIR/var-calling/results $HOME/ecoli-analysis-dcache/
+cp -r $TMPDIR/var-calling/results $HOME/ecoli-analysis-ada/
